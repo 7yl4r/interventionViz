@@ -1,0 +1,238 @@
+%\documentclass[journal]{vgtc}                % final (journal style)
+%\documentclass[review,journal]{vgtc}         % review (journal style)
+%\documentclass[widereview]{vgtc}             % wide-spaced review
+\documentclass[preprint,journal]{vgtc}       % preprint (journal style)
+%\documentclass[electronic,journal]{vgtc}     % electronic version, journal
+
+%% Uncomment one of the lines above depending on where your paper is
+%% in the conference process. ``review'' and ``widereview'' are for review
+%% submission, ``preprint'' is for pre-publication, and the final version
+%% doesn't use a specific qualifier. Further, ``electronic'' includes
+%% hyperreferences for more convenient online viewing.
+
+%% Please use one of the ``review'' options in combination with the
+%% assigned online id (see below) ONLY if your paper uses a double blind
+%% review process. Some conferences, like IEEE Vis and InfoVis, have NOT
+%% in the past.
+
+%% Please note that the use of figures other than the optional teaser is 
+%% not permitted on the first page of the journal version.  Figures should 
+%% begin on the second page and be in CMYK or Grey scale format, 
+%% otherwise, colour shifting may occur during the printing process.  
+%% Papers submitted with figures other than the optional teaser on the
+%% first page will be refused.
+
+%% These three lines bring in essential packages: ``mathptmx'' for Type 1
+%% typefaces, ``graphicx'' for inclusion of EPS figures. and ``times''
+%% for proper handling of the times font family.
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{times}
+
+%% We encourage the use of mathptmx for consistent usage of times font
+%% throughout the proceedings. However, if you encounter conflicts
+%% with other math-related packages, you may want to disable it.
+
+%% This turns references into clickable hyperlinks.
+\usepackage[bookmarks,backref=true,linkcolor=black]{hyperref} %,colorlinks
+\hypersetup{
+  pdfauthor = {},
+  pdftitle = {},
+  pdfsubject = {},
+  pdfkeywords = {},
+  colorlinks=true,
+  linkcolor= black,
+  citecolor= black,
+  pageanchor=true,
+  urlcolor = black,
+  plainpages = false,
+  linktocpage
+}
+
+%% If you are submitting a paper to a conference for review with a double
+%% blind reviewing process, please replace the value ``0'' below with your
+%% OnlineID. Otherwise, you may safely leave it at ``0''.
+\onlineid{0}
+
+%% declare the category of your paper, only shown in review mode
+\vgtccategory{Research}
+
+%% allow for this line if you want the electronic option to work properly
+\vgtcinsertpkg
+
+%% In preprint mode you may define your own headline.
+%\preprinttext{To appear in IEEE Transactions on Visualization and Computer Graphics.}
+
+%% Paper title.
+
+\title{InterventionViz: A Visual Analysis of Behaviour Changing Event Dynamics}
+
+%% This is how authors are specified in the journal style
+
+%% indicate IEEE Member or Student Member in form indicated below
+\author{T. Murray \textit{Student Member, IEEE}, D. Spruijt-Metz, E. Hekler, A. Raij}
+\authorfooter{
+%% insert punctuation at end of each item
+\item
+ T. Murray is with the University of South Florida. E-mail: tylarmurray@mail.usf.edu.
+\item
+ D. Spruijt-Metz is with .
+\item
+ E. Hekler is with .
+\item
+ A. Raij is with the University of South Florida.
+}
+
+%other entries to be set up for journal
+\shortauthortitle{Biv \MakeLowercase{\textit{et al.}}: InterventionViz}
+%\shortauthortitle{Firstauthor \MakeLowercase{\textit{et al.}}: Paper Title}
+
+%% Abstract section.
+\abstract{
+With the advent of research-grade wearable sensor suites and increasingly ubiquitous human-computer interface comes the opportunity for a new generation of behavioral theory and behavior change methodologies.
+Just-in-time interventions (JITIs) designed to optimize a subject’s behavior based on their momentary context are under exploration as a potentially powerful ally for practitioners and commercial behavior health applications. 
+Analysis of the effect an intervention has on a target behavior is a complex task not well handled by current methods. 
+In this work we introduce novel set of visualization techniques to aid analysis of intervention event effects with emphasis on the dynamics of participant response to intervention. 
+To highlight the strengths and caveats of our techniques, results from data from two trial studies of physical activity interventions and one control dataset are compared.
+} % end abstract
+
+%% Keywords that describe your work. Will show as 'Index Terms' in journal
+%% please capitalize first letter and insert punctuation after last keyword
+\keywords{Radiosity, global illumination, constant time}
+
+%% ACM Computing Classification System (CCS). 
+%% See <http://www.acm.org/class/1998/> for details.
+%% The ``\CCScat'' command takes four arguments.
+
+\CCScatlist{ % not used in journal version
+ \CCScat{K.6.1}{Management of Computing and Information Systems}%
+{Project and People Management}{Life Cycle};
+ \CCScat{K.7.m}{The Computing Profession}{Miscellaneous}{Ethics}
+}
+
+%% Uncomment below to include a teaser figure.
+   \teaser{
+   \centering
+   \includegraphics[width=16cm]{CypressView}
+   \caption{In the Clouds: Vancouver from Cypress Mountain.}
+  }
+
+%% Uncomment below to disable the manuscript note
+%\renewcommand{\manuscriptnotetxt}{}
+
+%% Copyright space is enabled by default as required by guidelines.
+%% It is disabled by the 'review' option or via the following command:
+% \nocopyrightspace
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%% The ``\maketitle'' command must be the first command after the
+%% ``\begin{document}'' command. It prepares and prints the title block.
+
+%% the only exception to this rule is the \firstsection command
+\firstsection{Introduction}
+
+\maketitle
+
+%% \section{Introduction} %for journal use above \firstsection{..} instead
+
+TODO: refs are from ubicomp submission
+
+The confluence of pervasive sensing, machine learning, network access, and computation is facilitating new approaches to improving behavioral choices. These systems can detect behaviors and psychological states such as stress[11, 42], physical activity[39, 18], social interaction[62], and smoking[53], automatically and, in some cases, in real-time.
+These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health[36, 46], productivity[29, 56, 31], personal finance[23], and environmental stewardship.[17] 
+New methods for evaluating these behavioral interventions remain underexplored and conventional methods of analysis do not offer the level of detail needed to explore the implicit dynamics of just-in-time, interactive, or adaptive interventions.
+
+Current theories of behavior appear inadequate to inform state-of-the-art intervention development /cite{Riley2011}, but current methods of intervention analysis are limited in their ability to inform the development of state-of-the-art behavioral theories. 
+In addition to metrics of success, behavioral theorists need tools to help understand the dynamics of behavioral responses to a stimulus. 
+We present methods for exploring these dynamical responses through data visualization.
+
+\subsection{Current Intervention Methods}
+TODO: EXAMPLES OF JITAI (Just In Time Adaptive Interventions) ANALYSIS and HOW METHODS FALL SHORT
+
+\subsection{Related Event-based Time Series Visualization}
+TODO: INSPIRATION TAKEN FROM EXISTING VIZ WORK
+
+
+\subsection{Example Application: Physical Activity}
+As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of >8 days. 
+In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts. 
+In addition to this data, a control dataset with known intervention responses is included for comparison.
+
+\subsubsection{mAvatar Study}
+In this study…
+
+repeated measures design
+
+\subsubsection{KnowMe Study}
+In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor (PAdevice??) for 3 days. 
+Physical activity was measured continuously and was monitored in real time. 
+When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone. 
+Each text message is manually crafted to prompt the subject to be more physically active.
+
+MORE DETAILS NEEDED
+
+\subsubsection{Control Dataset}
+TODO
+
+\section{Design}
+info here on vis design choices and what we are looking for in the data.
+
+Existing “macro-scale” analyses methods can determine if an intervention has a significant influence over our target behavior, but it does not give much insight into how the event has an effect over time. 
+The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
+Now that we can measure outcomes at much higher frequencies, methods which leverage this additional information should be adopted.
+
+The dynamic response of the targeted behavior leading up to and following the event tells us much  more about how this effect begins and fades over time. 
+A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible. 
+
+\subsection{Highlighting Event Dynamics}
+what we are looking for in the data
+
+Ideally this graph will show some smooth bump showing the delay before the effect kicks in and the falloff as it ends.
+
+\subsection{Event-time Alignment}
+time-shifting data view so event is at t=0
+
+\subsection{Stacking}
+stack multiple events to average out noise
+By analyzing aggregated measurements surrounding each event, we can begin to get a better picture of the latency and delay involved while still “averaging out” random contextual influences.
+has same effect as showing average, but individual events still visible
+
+use standard deviation and mean on y-axis to give context
+
+stack multiple participants to achieve more general results
+
+\subsection{Comparing Event Types}
+A better analysis is enabled by introducing a “control event” against which to compare the experimental event. 
+This view presents the average response to our experimental event minus the average control event. 
+This allows us to explore the difference between two events. 
+For example, in the control dataset, intervention events which were not effective at inducing physical activity serve as the control while interventions which were effective serve as the experimental event.
+
+\subsection{Dealing With Overlapped Data Frames}
+When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data. For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
+
+TODO: show simple example with simple bump looks like periodic decay if another event 10m later occurs frequently. 
+
+Figure 47 shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored. 
+Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used. 
+This summary of step counts following an avatar view event (either sedentary or active) gives a baseline to which we can compare active-avatar and sedentary-avatar views.
+
+
+\section{Conclusion}
+The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time. 
+These methods, when combined with a computational modeling approach to understanding human behavior may enable behavioral scientists to formulate more accurate and more application-ready theories, leading to more effective behavioral interventions. 
+
+%% if specified like this the section will be committed in review mode
+\acknowledgments{
+The authors wish to thank A, B, C. This work was supported in part by
+a grant from XYZ.}
+
+\bibliographystyle{abbrv}
+%%use following if all content of bibtex file should be shown
+%\nocite{*}
+\bibliography{template}
+\end{document}
+
