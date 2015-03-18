@@ -65,7 +65,7 @@
 
 %% Paper title.
 
-\title{InterventionViz: A Visual Analysis of Behaviour Changing Event Dynamics}
+\title{InterventionViz: A Visual Analysis of Behavior Changing Event Dynamics}
 
 %% This is how authors are specified in the journal style
 
@@ -163,9 +163,10 @@ In both studies interventions were delivered with the intent of increasing subje
 In addition to this data, a control dataset with known intervention responses is included for comparison.
 
 \subsubsection{mAvatar Study}
-In this study…
-
-repeated measures design
+An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based “live wallpaper” deployed on Android phones. 
+Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity. 
+Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games). 
+Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count. 
 
 \subsubsection{KnowMe Study}
 In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor (PAdevice??) for 3 days. 
@@ -176,12 +177,13 @@ Each text message is manually crafted to prompt the subject to be more physicall
 MORE DETAILS NEEDED
 
 \subsubsection{Control Dataset}
-TODO
+The control dataset is the result of manual recording of one subject undergoing an imaginary, very potent intervention. 
+Whenever the subject was at his desk a random timer was set for an interval ranging from 10 to 120 minutes. 
+When the timer went off, the time was logged and the subject intentionally increased his level of physical activity for a period of no less than 5 minutes. 
+Step counts were recorded throughout the duration of the two-week study period using a fitbit one electronic pedometer.
 
 \section{Design}
-info here on vis design choices and what we are looking for in the data.
-
-Existing “macro-scale” analyses methods can determine if an intervention has a significant influence over our target behavior, but it does not give much insight into how the event has an effect over time. 
+Existing “macro-scale” methods can determine if an intervention has a significant influence over our target behavior, but it does not give much insight into how the event has an effect over time. 
 The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
 Now that we can measure outcomes at much higher frequencies, methods which leverage this additional information should be adopted.
 
@@ -189,9 +191,27 @@ The dynamic response of the targeted behavior leading up to and following the ev
 A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible. 
 
 \subsection{Highlighting Event Dynamics}
-what we are looking for in the data
+The dynamics surrounding a particular event are most commonly shown using a time series. 
+The instance or span of the event is marked on the time-axis and the value of the behavioral measure (physical activity in this case) is encoded in the height at each point in time. 
+We can describe several idealized intervention types based on behavioral theory using this common visualization paradigm (\ref{fig:exampleSignals}).
 
-Ideally this graph will show some smooth bump showing the delay before the effect kicks in and the falloff as it ends.
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/exampleDynamicSignals.png}
+\caption{Theoretical responses to an intervention (adapted from \cite{glass1975}).}
+\label{fig:exampleSignals}
+\end{figure}
+
+\ref{fig:exampleSignals} shows the case where an event instantaneously causes permanent change in the target behavior, but in the many cases the intervention will have a temporary effect on the target behavior and will have some delay before setting in. 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/exampleDynamicComplications.png}
+\caption{Level-change responses with delay and decay (adapted from \cite{glass1975}).}
+\label{fig:exampleComplications}
+\end{figure}
+
+These intervention response dynamics as shown in \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
 
 \subsection{Event-time Alignment}
 time-shifting data view so event is at t=0
@@ -204,6 +224,8 @@ has same effect as showing average, but individual events still visible
 use standard deviation and mean on y-axis to give context
 
 stack multiple participants to achieve more general results
+
+
 
 \subsection{Comparing Event Types}
 A better analysis is enabled by introducing a “control event” against which to compare the experimental event. 
