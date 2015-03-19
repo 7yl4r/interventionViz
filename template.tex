@@ -202,7 +202,7 @@ We can describe several idealized intervention types based on behavioral theory 
 \label{fig:exampleSignals}
 \end{figure}
 
-\ref{fig:exampleSignals} shows the case where an event instantaneously causes permanent change in the target behavior, but in the many cases the intervention will have a temporary effect on the target behavior and will have some delay before setting in. 
+Figure \ref{fig:exampleSignals} shows the case where an event instantaneously causes permanent change in the target behavior, but in the many cases the intervention will have a temporary effect on the target behavior and will have some delay before setting in. 
 
 \begin{figure}
 \centering
@@ -211,21 +211,44 @@ We can describe several idealized intervention types based on behavioral theory 
 \label{fig:exampleComplications}
 \end{figure}
 
-These intervention response dynamics as shown in \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
+These intervention response dynamics as shown in figure \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
 
 \subsection{Event-time Alignment}
-time-shifting data view so event is at t=0
+Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention. 
+This is a familiar problem with a familiar solution. 
+By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can average the series together in order to identify effects which are common between all events.
+Aggregated measurements surrounding each event begin to give a better picture of the latency and delay of the response.
+
+This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/perfect_intervention.png}
+\caption{Average step-count surrounding the control dataset intervention.}
+\label{fig:interventionAverage}
+\end{figure}
+
+TODO: figure \ref{fig:interventionAverage} should be side-by-side comparison of all responses (not stacked, lines) to average (line)
+
+TODO: discuss average-response for control dataset
+
+As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
+An additional y-axis showing the mean and standard deviation of the series should also be included to give an increased sense of the significance of this effect relative to data which may be out of frame.
 
 \subsection{Stacking}
-stack multiple events to average out noise
-By analyzing aggregated measurements surrounding each event, we can begin to get a better picture of the latency and delay involved while still “averaging out” random contextual influences.
-has same effect as showing average, but individual events still visible
+To improve upon figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
+While still “averaging out” random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
 
-use standard deviation and mean on y-axis to give context
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/knowMe_sms_intervention.png}
+\caption{Stacked intervention response graph for all events across all subjects of in the KnowMe dataset.}
+\label{fig:knowMe_stacked}
+\end{figure}
 
-stack multiple participants to achieve more general results
+Figure \ref{fig:knowMe_stacked} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message. Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention. 
 
-
+TODO: method for measuring the statistical significance of the response?
 
 \subsection{Comparing Event Types}
 A better analysis is enabled by introducing a “control event” against which to compare the experimental event. 
