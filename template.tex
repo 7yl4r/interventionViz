@@ -250,11 +250,35 @@ Figure \ref{fig:knowMe_stacked} shows an increase in heart-rate following the de
 
 TODO: method for measuring the statistical significance of the response?
 
+\subsection{Controlling for Intervention Delivery Context}
+In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered. 
+For instance, an intervention delivered on a mobile device is always delivered within the context of phone interaction.
+That is, the user is always using the phone when the intervention is delivered. 
+It is possible that "using the phone" has it's own unique effect on the behavioral measure. 
+Thus, using "phone use" events as a baseline against which to compare "phone use and intervention delivery" strengthens the chance that the observed effect is a result of the intervention itself and not the result of frequently concurrent contextual forces.
+For example, in the control dataset, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
+
+To represent this visually we return to the use of line averages due to the confounding nature of negatively-valued bars in stacked graphs.
+
+TODO: fig line graph of controlData avg(intervention)-avg(control)
+
+
 \subsection{Comparing Event Types}
-A better analysis is enabled by introducing a “control event” against which to compare the experimental event. 
-This view presents the average response to our experimental event minus the average control event. 
-This allows us to explore the difference between two events. 
-For example, in the control dataset, intervention events which were not effective at inducing physical activity serve as the control while interventions which were effective serve as the experimental event.
+Aforementioned methods used to provide a contextual baseline of comparison for events can also be applied to allow for a comparison between two event types. 
+The mAvatar dataset contains two types of intervention which may be interesting to compare: 1) active-avatar viewing, 2) sedentary-avatar viewing.
+In this case, the two event types are theoretically opposite in effect, meaning that the sedentary-avatar effect should resemble a mirrored version of the active-avatar effect.
+Furthermore, a comparison should thus allow for even better isolation of the behavioral response to the intervention.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/nonexclude_steps_60m_after_view_event_avg19.png}
+\caption{Active-event series average minus sedentary-event series average. TODO: average shown in bold.}
+\label{fig:mAvatarDifference}
+\end{figure}
+
+Figure \ref{fig:mAvatarDifference} doesn't quite show the dramatic effect a researcher might hope for on average, but the individual participant series suggest that there are interesting subgroups within our data.
+
+TODO: talk about the subgroups, label the series.
 
 \subsection{Dealing With Overlapped Data Frames}
 When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data. For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
