@@ -27,6 +27,7 @@
 %% for proper handling of the times font family.
 \usepackage{mathptmx}
 \usepackage{graphicx}
+\usepackage{epstopdf}
 \usepackage{times}
 
 %% We encourage the use of mathptmx for consistent usage of times font
@@ -91,9 +92,9 @@
 \abstract{
 With the advent of research-grade wearable sensor suites and increasingly ubiquitous human-computer interface comes the opportunity for a new generation of behavioral theory and behavior change methodologies.
 Just-in-time interventions (JITIs) designed to optimize a subject’s behavior based on their momentary context are under exploration as a potentially powerful ally for practitioners and commercial behavior health applications. 
-Analysis of the effect an intervention has on a target behavior is a complex task not well handled by current methods. 
-In this work we introduce novel set of visualization techniques to aid analysis of intervention event effects with emphasis on the dynamics of participant response to intervention. 
-To highlight the strengths and caveats of our techniques, results from data from two trial studies of physical activity interventions and one control dataset are compared.
+Analysis of the effect an intervention has on a target behavior however, is a complex task not well handled by current methods. 
+In this work we explore the application of various visualization techniques to aid analysis of intervention event effects with emphasis on the dynamics of participant response to intervention. 
+To highlight the strengths and caveats of the techniques employed, data from two trial studies of physical activity interventions and one control dataset are utilized.
 } % end abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
@@ -197,7 +198,7 @@ We can describe several idealized intervention types based on behavioral theory 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/exampleDynamicSignals.png}
+\includegraphics[width=0.6\columnwidth]{./img/exampleDynamicSignals.png}
 \caption{Theoretical responses to an intervention (adapted from \cite{glass1975}).}
 \label{fig:exampleSignals}
 \end{figure}
@@ -206,7 +207,7 @@ Figure \ref{fig:exampleSignals} shows the case where an event instantaneously ca
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/exampleDynamicComplications.png}
+\includegraphics[width=0.6\columnwidth]{./img/exampleDynamicComplications.png}
 \caption{Level-change responses with delay and decay (adapted from \cite{glass1975}).}
 \label{fig:exampleComplications}
 \end{figure}
