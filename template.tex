@@ -229,19 +229,20 @@ This approach can be taken for all events in one subject's time series to charac
 \includegraphics[width=0.45\columnwidth]{./img/perfect_intervention.png}
 \caption{Comparison of all event responses (left) to average response (right) surrounding the control dataset intervention.}
 \label{fig:interventionAverage}
-\end{figure}
+\end{figure}	
 
 Figure \ref{fig:interventionAverage} makes clear the value of this method for drawing general conclusions from a set of seemingly random data.
 When looking at all events individually (figure \ref{fig:interventionAverage} left), it is difficult to spot any pattern in the series.
+One notable event seems to stand above the rest from 20-60min following the intervention, and a cursory glance at this visual might lead one to believe that this intervention was only effective in that one instance.
 When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} right).
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
-An additional y-axis showing the mean and standard deviation of the series should also be included to give an increased sense of the significance of this effect relative to data which may be out of frame.
+The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
 
 \subsection{Stacking}
 To improve upon figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
 While still “averaging out” random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
-g
+
 \begin{figure}
 \centering
 \includegraphics[width=0.9\columnwidth]{./img/knowMe_sms_intervention.png}
