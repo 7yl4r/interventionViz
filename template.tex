@@ -147,7 +147,7 @@ The insights presented in this work offer a foundation for future visualization 
    \teaser{
    \centering
    \includegraphics[width=16cm]{./img/teaser}
-   \caption{TODO: replace this with wider, shorter, better image.}
+   \caption{Sum of step counts following an intervention event shows event response dynamics.}
   }
 
 %% Uncomment below to disable the manuscript note
@@ -247,12 +247,6 @@ Figure \ref{fig:exampleSignals} shows the case where an event instantaneously ca
 These intervention response dynamics as shown in figure \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
 
 \subsection{Event-time Alignment}
-Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention.
-This is a familiar problem with a familiar solution.
-By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can average the series together in order to identify effects which are common between all events.
-Aggregated measurements surrounding each event begin to give a better picture of the latency and delay of the response.
-
-This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
 
 \begin{figure}
 \centering
@@ -261,6 +255,14 @@ This approach can be taken for all events in one subject's time series to charac
 \caption{Comparison of all event responses (left) to average response (right) surrounding the control dataset intervention.}
 \label{fig:interventionAverage}
 \end{figure}
+
+Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (left)).
+This is a familiar problem with a familiar solution.
+By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can average the series together in order to identify effects which are common between all events.
+Aggregated measurements surrounding each event begin to give a better picture of the latency and delay of the response.
+
+This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
+
 
 Figure \ref{fig:interventionAverage} makes clear the value of this method for drawing general conclusions from a set of seemingly random data.
 When looking at all events individually (figure \ref{fig:interventionAverage} left), it is difficult to spot any pattern in the series.
@@ -274,16 +276,24 @@ The additional y-axis showing the mean and standard deviation of the series is i
 To improve upon figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
 While still “averaging out” random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
 
+
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/knowMe_sms_intervention.png}
-\caption{Stacked intervention response graph for all events across all subjects of in the KnowMe dataset.}
-\label{fig:knowMe_stacked}
+\includegraphics[width=0.45\columnwidth]{./img/knowMe_60m_lines.png}
+\includegraphics[width=0.45\columnwidth]{./img/knowMe_60m_bars.png}
+\caption{Comparison of knowMe average lines and stacked bars.}
+\label{fig:knowMeCompare}
 \end{figure}
 
+Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot.
+The linegraph allows for identification of unqiue individuals (such as red, light blue TODO: mark these and reference by marker not color), but the stackplot better highlights the overall effect and also shows the number of events considered.
+Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display. The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded.
+
+Figure \ref{fig:knowMeCompare} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message.
+Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention.
 Figure \ref{fig:knowMe_stacked} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message. Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention.
 
-TODO: method for measuring the statistical significance of the response?
+The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelyhood of observing a particular shape are not covered here.
 
 \subsection{Controlling for Intervention Delivery Context}
 In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered.
@@ -306,8 +316,8 @@ Furthermore, a comparison should thus allow for even better isolation of the beh
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/nonexclude_steps_60m_after_view_event_avg19.png}
-\caption{Active-event series average minus sedentary-event series average. TODO: average shown in bold.}
+\includegraphics[width=0.9\columnwidth]{./img/mAvatar_difference_events.png}
+\caption{Active-event series average minus sedentary-event series average. (average shown as bold)}
 \label{fig:mAvatarDifference}
 \end{figure}
 
