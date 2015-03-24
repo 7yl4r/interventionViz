@@ -1,7 +1,7 @@
 %\documentclass[journal]{vgtc}                % final (journal style)
-%\documentclass[review,journal]{vgtc}         % review (journal style)
+\documentclass[review,journal]{vgtc}         % review (journal style)
 %\documentclass[widereview]{vgtc}             % wide-spaced review
-\documentclass[preprint,journal]{vgtc}       % preprint (journal style)
+%\documentclass[preprint,journal]{vgtc}       % preprint (journal style)
 %\documentclass[electronic,journal]{vgtc}     % electronic version, journal
 
 %% Uncomment one of the lines above depending on where your paper is
@@ -15,10 +15,10 @@
 %% review process. Some conferences, like IEEE Vis and InfoVis, have NOT
 %% in the past.
 
-%% Please note that the use of figures other than the optional teaser is 
-%% not permitted on the first page of the journal version.  Figures should 
-%% begin on the second page and be in CMYK or Grey scale format, 
-%% otherwise, colour shifting may occur during the printing process.  
+%% Please note that the use of figures other than the optional teaser is
+%% not permitted on the first page of the journal version.  Figures should
+%% begin on the second page and be in CMYK or Grey scale format,
+%% otherwise, colour shifting may occur during the printing process.
 %% Papers submitted with figures other than the optional teaser on the
 %% first page will be refused.
 
@@ -50,6 +50,11 @@
   linktocpage
 }
 
+% Select what to do with command \comment:
+\newcommand{\comment}[1]{}  %comment not showed
+%\newcommand{\comment}[1]
+%{\par {\bfseries \color{blue} #1 \par}} %comment showed
+
 %% If you are submitting a paper to a conference for review with a double
 %% blind reviewing process, please replace the value ``0'' below with your
 %% OnlineID. Otherwise, you may safely leave it at ``0''.
@@ -71,7 +76,7 @@
 %% This is how authors are specified in the journal style
 
 %% indicate IEEE Member or Student Member in form indicated below
-\author{T. Murray \textit{Student Member, IEEE}, D. Spruijt-Metz, E. Hekler, A. Raij}
+\author{T. Murray \textit{Student Member, IEEE}, D. Spruijt-Metz, E. Hekler, A. Raij \textit{Member, IEEE}}
 \authorfooter{
 %% insert punctuation at end of each item
 \item
@@ -81,7 +86,7 @@
 \item
  E. Hekler is with .
 \item
- A. Raij is with the University of South Florida.
+ A. Raij is with the University of Central Florida Institute for Simulation and Training.
 }
 
 %other entries to be set up for journal
@@ -90,11 +95,37 @@
 
 %% Abstract section.
 \abstract{
-With the advent of research-grade wearable sensor suites and increasingly ubiquitous human-computer interface comes the opportunity for a new generation of behavioral theory and behavior change methodologies. 
-Just-in-time interventions (JITIs) designed to optimize a subjects behavior based on their momentary context are under exploration as a potentially powerful ally for practitioners and commercial behavior health applications. 
-Analysis of the effect an intervention has on a target behavior, however, is a complex task not well handled by current methods. 
-In this work we explore the application of aggregated time-series visualization techniques to aid analysis of intervention event effects with emphasis on the dynamics of participant response to intervention. 
-To highlight the strengths and caveats of the techniques employed, data from two trial studies of physical activity interventions (n=11, n=10) and one empirical control dataset (n=1) are utilized. 
+
+\comment{Ever since [], behavioral scientists have sought theories to explain, influence and change human behavior.
+Theories are  built on constructs that explain or act as prerequisites for performance (or lack of performance) of a behavior.
+For example, constructs such as location, social networks, and time of day (external context) influence behavior as much or more so than a person's internal traits and states, such as personality, emotional state, and mental health.
+With the right theory in hand, behavioral scientists can develop interventions that target these constructs to effectively drive behavior change (ref to Figure of simple cause and effect model).
+
+However, such theory-driven approaches to  behavioral interventions have shown limited success. There are likely many reasons for this, but one clear reason is that the underlying behavioral theories driving such interventions is wrong.
+
+Recent advances in sensing and ubiquitous computing are enabling examination of behavior at much smaller time scales (on the order of seconds) and in a wide range of daily life contexts.  The goal of this work is thus to ...
+
+
+Behavior change is the art and science of facilitating adoption of new behaviors or abandoning of old behaviors. Behavior change is particularly important in health care.
+Many of today's major health challenges can be mapped back to individual behavioral choices.
+For example, smoking and exercise are behaviors that clearly affect health and longevity (by increasing the chance of getting cancer, or decreasing the chance of obesity and diabetes).
+
+There are many reasons why behavior change is hard: people build up habits over time, behaviors may be tied to addictive substances or activities, behavior is tied to normal daily human experience and context (i.e. smoking more often when with a certain group of individuals or in a particular location).
+}
+
+
+
+
+
+New wearable sensing technologies are changing the way we
+
+
+
+With the advent of research-grade wearable sensor suites and increasingly ubiquitous human-computer interface comes the opportunity for a new generation of behavioral theory and behavior change methodologies.
+Just-in-time interventions (JITIs) designed to optimize a subjects behavior based on their momentary context are under exploration as a potentially powerful ally for practitioners and commercial behavior health applications.
+Analysis of the effect an intervention has on a target behavior, however, is a complex task not well handled by current methods.
+In this work we explore the application of aggregated time-series visualization techniques to aid analysis of intervention event effects with emphasis on the dynamics of participant response to intervention.
+To highlight the strengths and caveats of the techniques employed, data from two trial studies of physical activity interventions (n=11, n=10) and one empirical control dataset (n=1) are utilized.
 The insights presented in this work offer a foundation for future visualization research addressing this problem and as a guide for behavioral scientists in need of more novel methods of analysis.
 } % end abstract
 
@@ -102,7 +133,7 @@ The insights presented in this work offer a foundation for future visualization 
 %% please capitalize first letter and insert punctuation after last keyword
 \keywords{Radiosity, global illumination, constant time}
 
-%% ACM Computing Classification System (CCS). 
+%% ACM Computing Classification System (CCS).
 %% See <http://www.acm.org/class/1998/> for details.
 %% The ``\CCScat'' command takes four arguments.
 
@@ -145,11 +176,11 @@ The insights presented in this work offer a foundation for future visualization 
 TODO: refs are from ubicomp submission
 
 The confluence of pervasive sensing, machine learning, network access, and computation is facilitating new approaches to improving behavioral choices. These systems can detect behaviors and psychological states such as stress[11, 42], physical activity[39, 18], social interaction[62], and smoking[53], automatically and, in some cases, in real-time.
-These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health[36, 46], productivity[29, 56, 31], personal finance[23], and environmental stewardship.[17] 
+These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health[36, 46], productivity[29, 56, 31], personal finance[23], and environmental stewardship.[17]
 New methods for evaluating these behavioral interventions remain underexplored and conventional methods of analysis do not offer the level of detail needed to explore the implicit dynamics of just-in-time, interactive, or adaptive interventions.
 
-Current theories of behavior appear inadequate to inform state-of-the-art intervention development /cite{Riley2011}, but current methods of intervention analysis are limited in their ability to inform the development of state-of-the-art behavioral theories. 
-In addition to metrics of success, behavioral theorists need tools to help understand the dynamics of behavioral responses to a stimulus. 
+Current theories of behavior appear inadequate to inform state-of-the-art intervention development /cite{Riley2011}, but current methods of intervention analysis are limited in their ability to inform the development of state-of-the-art behavioral theories.
+In addition to metrics of success, behavioral theorists need tools to help understand the dynamics of behavioral responses to a stimulus.
 We present methods for exploring these dynamical responses through data visualization.
 
 \subsection{Current Intervention Methods}
@@ -160,41 +191,41 @@ TODO: INSPIRATION TAKEN FROM EXISTING VIZ WORK
 
 
 \subsection{Example Application: Physical Activity}
-As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of >8 days. 
-In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts. 
+As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of >8 days.
+In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts.
 In addition to this data, a control dataset with known intervention responses is included for comparison.
 
 \subsubsection{mAvatar Study}
-An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based “live wallpaper” deployed on Android phones. 
-Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity. 
-Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games). 
-Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count. 
+An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based “live wallpaper” deployed on Android phones.
+Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity.
+Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games).
+Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count.
 
 \subsubsection{KnowMe Study}
-In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor (PAdevice??) for 3 days. 
-Physical activity was measured continuously and was monitored in real time. 
-When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone. 
+In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor (PAdevice??) for 3 days.
+Physical activity was measured continuously and was monitored in real time.
+When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone.
 Each text message is manually crafted to prompt the subject to be more physically active.
 
 MORE DETAILS NEEDED
 
 \subsubsection{Control Dataset}
-The control dataset is the result of manual recording of one subject undergoing an imaginary, very potent intervention. 
-Whenever the subject was at his desk a random timer was set for an interval ranging from 10 to 120 minutes. 
-When the timer went off, the time was logged and the subject intentionally increased his level of physical activity for a period of no less than 5 minutes. 
+The control dataset is the result of manual recording of one subject undergoing an imaginary, very potent intervention.
+Whenever the subject was at his desk a random timer was set for an interval ranging from 10 to 120 minutes.
+When the timer went off, the time was logged and the subject intentionally increased his level of physical activity for a period of no less than 5 minutes.
 Step counts were recorded throughout the duration of the two-week study period using a fitbit one electronic pedometer.
 
 \section{Design}
-Existing “macro-scale” methods can determine if an intervention has a significant influence over our target behavior, but it does not give much insight into how the event has an effect over time. 
+Existing “macro-scale” methods can determine if an intervention has a significant influence over our target behavior, but it does not give much insight into how the event has an effect over time.
 The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
 Now that we can measure outcomes at much higher frequencies, methods which leverage this additional information should be adopted.
 
-The dynamic response of the targeted behavior leading up to and following the event tells us much  more about how this effect begins and fades over time. 
-A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible. 
+The dynamic response of the targeted behavior leading up to and following the event tells us much  more about how this effect begins and fades over time.
+A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible.
 
 \subsection{Highlighting Event Dynamics}
-The dynamics surrounding a particular event are most commonly shown using a time series. 
-The instance or span of the event is marked on the time-axis and the value of the behavioral measure (physical activity in this case) is encoded in the height at each point in time. 
+The dynamics surrounding a particular event are most commonly shown using a time series.
+The instance or span of the event is marked on the time-axis and the value of the behavioral measure (physical activity in this case) is encoded in the height at each point in time.
 We can describe several idealized intervention types based on behavioral theory using this common visualization paradigm.
 
 \begin{figure}
@@ -204,7 +235,7 @@ We can describe several idealized intervention types based on behavioral theory 
 \label{fig:exampleSignals}
 \end{figure}
 
-Figure \ref{fig:exampleSignals} shows the case where an event instantaneously causes permanent change in the target behavior, but in the many cases the intervention will have a temporary effect on the target behavior and will have some delay before setting in. 
+Figure \ref{fig:exampleSignals} shows the case where an event instantaneously causes permanent change in the target behavior, but in the many cases the intervention will have a temporary effect on the target behavior and will have some delay before setting in.
 
 \begin{figure}
 \centering
@@ -216,8 +247,8 @@ Figure \ref{fig:exampleSignals} shows the case where an event instantaneously ca
 These intervention response dynamics as shown in figure \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
 
 \subsection{Event-time Alignment}
-Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention. 
-This is a familiar problem with a familiar solution. 
+Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention.
+This is a familiar problem with a familiar solution.
 By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can average the series together in order to identify effects which are common between all events.
 Aggregated measurements surrounding each event begin to give a better picture of the latency and delay of the response.
 
@@ -229,7 +260,7 @@ This approach can be taken for all events in one subject's time series to charac
 \includegraphics[width=0.45\columnwidth]{./img/perfect_intervention.png}
 \caption{Comparison of all event responses (left) to average response (right) surrounding the control dataset intervention.}
 \label{fig:interventionAverage}
-\end{figure}	
+\end{figure}
 
 Figure \ref{fig:interventionAverage} makes clear the value of this method for drawing general conclusions from a set of seemingly random data.
 When looking at all events individually (figure \ref{fig:interventionAverage} left), it is difficult to spot any pattern in the series.
@@ -250,15 +281,15 @@ While still “averaging out” random contextual influences, this visual also p
 \label{fig:knowMe_stacked}
 \end{figure}
 
-Figure \ref{fig:knowMe_stacked} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message. Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention. 
+Figure \ref{fig:knowMe_stacked} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message. Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention.
 
 TODO: method for measuring the statistical significance of the response?
 
 \subsection{Controlling for Intervention Delivery Context}
-In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered. 
+In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered.
 For instance, an intervention delivered on a mobile device is always delivered within the context of phone interaction.
-That is, the user is always using the phone when the intervention is delivered. 
-It is possible that "using the phone" has it's own unique effect on the behavioral measure. 
+That is, the user is always using the phone when the intervention is delivered.
+It is possible that "using the phone" has it's own unique effect on the behavioral measure.
 Thus, using "phone use" events as a baseline against which to compare "phone use and intervention delivery" strengthens the chance that the observed effect is a result of the intervention itself and not the result of frequently concurrent contextual forces.
 For example, in the control dataset, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
 
@@ -268,7 +299,7 @@ TODO: fig line graph of controlData avg(intervention)-avg(control)
 
 
 \subsection{Comparing Event Types}
-Aforementioned methods used to provide a contextual baseline of comparison for events can also be applied to allow for a comparison between two event types. 
+Aforementioned methods used to provide a contextual baseline of comparison for events can also be applied to allow for a comparison between two event types.
 The mAvatar dataset contains two types of intervention which may be interesting to compare: 1) active-avatar viewing, 2) sedentary-avatar viewing.
 In this case, the two event types are theoretically opposite in effect, meaning that the sedentary-avatar effect should resemble a mirrored version of the active-avatar effect.
 Furthermore, a comparison should thus allow for even better isolation of the behavioral response to the intervention.
@@ -287,16 +318,16 @@ TODO: talk about the subgroups, label the series.
 \subsection{Dealing With Overlapped Data Frames}
 When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data. For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
 
-TODO: show simple example with simple bump looks like periodic decay if another event 10m later occurs frequently. 
+TODO: show simple example with simple bump looks like periodic decay if another event 10m later occurs frequently.
 
-Figure 47 shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored. 
-Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used. 
+Figure 47 shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored.
+Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used.
 This summary of step counts following an avatar view event (either sedentary or active) gives a baseline to which we can compare active-avatar and sedentary-avatar views.
 
 
 \section{Conclusion}
-The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time. 
-These methods, when combined with a computational modeling approach to understanding human behavior may enable behavioral scientists to formulate more accurate and more application-ready theories, leading to more effective behavioral interventions. 
+The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time.
+These methods, when combined with a computational modeling approach to understanding human behavior may enable behavioral scientists to formulate more accurate and more application-ready theories, leading to more effective behavioral interventions.
 
 %% if specified like this the section will be committed in review mode
 \acknowledgments{
@@ -308,4 +339,3 @@ a grant from XYZ.}
 %\nocite{*}
 \bibliography{template}
 \end{document}
-
