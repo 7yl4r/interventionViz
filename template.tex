@@ -246,9 +246,12 @@ Though the average line-graph makes spotting effects easy, we must be wary of ou
 This danger can be sometimes mitigated through use of median in place of mean, but since step-count does not obey a normal distribution (0 values are almost always modal), that approach does not work well in this case.
 
 \subsection{Stacking}
-To improve upon figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
+To address the shortcomings of the aforementioned average-line shown in figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. 
+This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
 While still “averaging out” random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
-
+For an n-of-one dataset such as the control dataset, events can be graphed with a unique color.
+In figure 1, event colors are chosen based on the order in which they were observed.
+Color mapping of events can also be used to visually group events based on time of day, location of the event, or participant. 
 
 \begin{figure}
 \centering
@@ -259,13 +262,19 @@ While still “averaging out” random contextual influences, this visual also p
 \end{figure}
 
 Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot.
+The thin lines in figure \ref{fig:knowMeCompare} (left) represent the response of each participant to the event averaged across all events for that participant.
+The thick line shows the average across all participant’s average series.
+
+The stacked bars in figure \ref{fig:knowMeCompare} (right) are colored by participant ID, and each represent one unique event - stacked in order of event incidence.
+This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
+
 The linegraph allows for identification of unqiue individuals (such as red, light blue TODO: mark these and reference by marker not color), but the stackplot better highlights the overall effect and also shows the number of events considered.
 Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display. The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded. 
 
-Figure \ref{fig:knowMeCompare} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message. 
-Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention. 
+Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure?) following the delivery of a physical-activity-suggesting sms message. 
+Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention. 
 
-The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelyhood of observing a particular shape are not covered here.
+The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
 
 \subsection{Controlling for Intervention Delivery Context}
 In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered. 
@@ -305,6 +314,8 @@ TODO: show simple example with simple bump looks like periodic decay if another 
 Figure 47 shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored. 
 Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used. 
 This summary of step counts following an avatar view event (either sedentary or active) gives a baseline to which we can compare active-avatar and sedentary-avatar views.
+
+TODO: show comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
 
 
 \section{Conclusion}
