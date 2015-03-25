@@ -116,7 +116,7 @@ The insights presented in this work offer a foundation for future visualization 
    \teaser{
    \centering
    \includegraphics[width=16cm]{./img/teaser}
-   \caption{Sum of step counts following an intervention event shows event response dynamics.}
+   \caption{Sum of step counts following an intervention event shows event response dynamics. TODO: color by events}
   }
 
 %% Uncomment below to disable the manuscript note
@@ -241,6 +241,9 @@ When averaging across all event responses, however, a clear, significant respons
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
 The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
+In addition to the nearly immediate response, a longer-lasting effect reaching out to approximately 180m after the event seems to be boosting step count, though the all-events view in figure \ref{fig:interventionAverage} as well as the stacked-events display in Figure 1 reveal that there are two events which may be the the cause.
+Though the average line-graph makes spotting effects easy, we must be wary of outlying events or participants which can skew the average.
+This danger can be sometimes mitigated through use of median in place of mean, but since step-count does not obey a normal distribution (0 values are almost always modal), that approach does not work well in this case.
 
 \subsection{Stacking}
 To improve upon figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
