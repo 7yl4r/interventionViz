@@ -147,7 +147,7 @@ The insights presented in this work offer a foundation for future visualization 
    \teaser{
    \centering
    \includegraphics[width=16cm]{./img/teaser}
-   \caption{Sum of step counts following an intervention event shows event response dynamics.}
+   \caption{Sum of step counts following an intervention event shows event response dynamics. TODO: color by events}
   }
 
 %% Uncomment below to disable the manuscript note
@@ -272,11 +272,17 @@ When averaging across all event responses, however, a clear, significant respons
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
 The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
+In addition to the nearly immediate response, a longer-lasting effect reaching out to approximately 180m after the event seems to be boosting step count, though the all-events view in figure \ref{fig:interventionAverage} as well as the stacked-events display in Figure 1 reveal that there are two events which may be the the cause.
+Though the average line-graph makes spotting effects easy, we must be wary of outlying events or participants which can skew the average.
+This danger can be sometimes mitigated through use of median in place of mean, but since step-count does not obey a normal distribution (0 values are almost always modal), that approach does not work well in this case.
 
 \subsection{Stacking}
-To improve upon figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked. This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
+To address the shortcomings of the aforementioned average-line shown in figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked.
+This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
 While still “averaging out” random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
-
+For an n-of-one dataset such as the control dataset, events can be graphed with a unique color.
+In figure 1, event colors are chosen based on the order in which they were observed.
+Color mapping of events can also be used to visually group events based on time of day, location of the event, or participant.
 
 \begin{figure}
 \centering
@@ -287,14 +293,19 @@ While still “averaging out” random contextual influences, this visual also p
 \end{figure}
 
 Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot.
+The thin lines in figure \ref{fig:knowMeCompare} (left) represent the response of each participant to the event averaged across all events for that participant.
+The thick line shows the average across all participant’s average series.
+
+The stacked bars in figure \ref{fig:knowMeCompare} (right) are colored by participant ID, and each represent one unique event - stacked in order of event incidence.
+This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
+
 The linegraph allows for identification of unqiue individuals (such as red, light blue TODO: mark these and reference by marker not color), but the stackplot better highlights the overall effect and also shows the number of events considered.
 Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display. The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded.
 
-Figure \ref{fig:knowMeCompare} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message.
-Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention.
-Figure \ref{fig:knowMe_stacked} shows an increase in heart-rate following the delivery of a physical-activity-suggesting sms message. Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than the control intervention.
+Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure?) following the delivery of a physical-activity-suggesting sms message.
+Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
 
-The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelyhood of observing a particular shape are not covered here.
+The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
 
 \subsection{Controlling for Intervention Delivery Context}
 In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered.
@@ -302,18 +313,24 @@ For instance, an intervention delivered on a mobile device is always delivered w
 That is, the user is always using the phone when the intervention is delivered.
 It is possible that "using the phone" has it's own unique effect on the behavioral measure.
 Thus, using "phone use" events as a baseline against which to compare "phone use and intervention delivery" strengthens the chance that the observed effect is a result of the intervention itself and not the result of frequently concurrent contextual forces.
-For example, in the control dataset, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
 
-To represent this visually we return to the use of line averages due to the confounding nature of negatively-valued bars in stacked graphs.
+Using the control dataset as an example, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
+
+To represent a difference between two intervention effect time series visually we return to the use of line averages due to the confounding nature of negatively-valued bars in stacked graphs.
 
 TODO: fig line graph of controlData avg(intervention)-avg(control)
 
 
 \subsection{Comparing Event Types}
 Aforementioned methods used to provide a contextual baseline of comparison for events can also be applied to allow for a comparison between two event types.
+By treating one event as the baseline, differences between the events can be visualized.
+Using this paradigm, nearly equivalent event responses will have a near-zero difference.
+Positively-valued areas of the resulting chart indicate times when the "experimental event" had a greater positive effect on the target measure, or, conversely, that the "control event" had a greater negative effect on the target measure.
+
+
 The mAvatar dataset contains two types of intervention which may be interesting to compare: 1) active-avatar viewing, 2) sedentary-avatar viewing.
 In this case, the two event types are theoretically opposite in effect, meaning that the sedentary-avatar effect should resemble a mirrored version of the active-avatar effect.
-Furthermore, a comparison should thus allow for even better isolation of the behavioral response to the intervention.
+Thus, the difference should accentuate the intervention's effect signature and better isolate the behavioral response from noisy data.
 
 \begin{figure}
 \centering
@@ -322,19 +339,50 @@ Furthermore, a comparison should thus allow for even better isolation of the beh
 \label{fig:mAvatarDifference}
 \end{figure}
 
-Figure \ref{fig:mAvatarDifference} doesn't quite show the dramatic effect a researcher might hope for on average, but the individual participant series suggest that there are interesting subgroups within our data.
+Even with two oppositely-polarized events figure \ref{fig:mAvatarDifference} fails to show the dramatic effect a researcher might hope for on average.
+The lack of observed effect indicates that the intervention had no effect on average.
+In this case, researchers attribute the apparent lack of effect to an ambiguity in study design which led to two opposing conditions: 1) subjects respond positively to physically-active avatars via the Proteus Effect \cite{???} 2) subjects respond negatively to physically-active avatars via falsely perceived biofeedback.
 
-TODO: talk about the subgroups, label the series.
+Figure \ref{fig:mAvatarDifference} suggests this subgrouping within the data in the individual participant series.
+
+TODO: talk about the subgroups (+ response vs -response), label the series.
+
+\section{Discussion and Future Work}
 
 \subsection{Dealing With Overlapped Data Frames}
-When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data. For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
+When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data.
+For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
 
-TODO: show simple example with simple bump looks like periodic decay if another event 10m later occurs frequently.
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/eventOverlapExample.png}
+\caption{Overlapping analysis windows confounds observed effect after time-alignment.}
+\label{fig:overlapExample}
+\end{figure}
 
-Figure 47 shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored.
-Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used.
-This summary of step counts following an avatar view event (either sedentary or active) gives a baseline to which we can compare active-avatar and sedentary-avatar views.
+Figure \ref{fig:overlapExample} illustrates this point by showing how events falling within each other's windows of analysis confound the data and ultimately yields a signal quite unlike the actual effect response.
+In real data, this is further complicated by the non-linear way in which effects are expected to combine.
+Study designs utilizing methods outlined in this paper should design studies to minimize overlapping analysis windows.
 
+Event overlap becomes somewhat inevitable, however, for large event window sizes.
+
+TODO: figure: comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
+
+Figure \ref{???} shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored.
+Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used because very few events are so isolated.
+
+\subsection{Modeling Observed Effects}
+TODO? Some example models of the aforementioned effects for control and/or knowMe data.
+
+transfer function modeling?
+fitting of a fluid-flow analogy using a priori constructs?
+other?
+
+\subsection{Characterizing Psychological Influence of Events via Response Signature}
+TODO? different psychological mechanisms of delivery used by an intervention could be identified by the dynamics observed
+
+\subsection{Statistical Analysis of Features}
+TODO: I think that to do this right we need to perform intervention analysis using transfer function modeling within arima framework
 
 \section{Conclusion}
 The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time.
