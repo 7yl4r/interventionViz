@@ -293,12 +293,13 @@ TODO: fig line graph of controlData avg(intervention)-avg(control)
 \subsection{Comparing Event Types}
 Aforementioned methods used to provide a contextual baseline of comparison for events can also be applied to allow for a comparison between two event types. 
 By treating one event as the baseline, differences between the events can be visualized.
+Using this paradigm, nearly equivalent event responses will have a near-zero difference.
 Positively-valued areas of the resulting chart indicate times when the "experimental event" had a greater positive effect on the target measure, or, conversely, that the "control event" had a greater negative effect on the target measure. 
 
 
 The mAvatar dataset contains two types of intervention which may be interesting to compare: 1) active-avatar viewing, 2) sedentary-avatar viewing.
 In this case, the two event types are theoretically opposite in effect, meaning that the sedentary-avatar effect should resemble a mirrored version of the active-avatar effect.
-Furthermore, a comparison should thus allow for even better isolation of the behavioral response to the intervention.
+Thus, the difference should accentuate the intervention's effect signature and better isolate the behavioral response from noisy data.
 
 \begin{figure}
 \centering
@@ -307,7 +308,11 @@ Furthermore, a comparison should thus allow for even better isolation of the beh
 \label{fig:mAvatarDifference}
 \end{figure}
 
-Figure \ref{fig:mAvatarDifference} doesn't quite show the dramatic effect a researcher might hope for on average, but the individual participant series suggest that there are interesting subgroups within our data.
+Even with two oppositely-polarized events figure \ref{fig:mAvatarDifference} fails to show the dramatic effect a researcher might hope for on average.
+The lack of observed effect indicates that the intervention had no effect on average.
+In this case, researchers attribute the apparent lack of effect to an ambiguity in study design which led to two opposing conditions: 1) subjects respond positively to physically-active avatars via the Proteus Effect \cite{???} 2) subjects respond negatively to physically-active avatars via falsely perceived biofeedback.
+
+Figure \ref{fig:mAvatarDifference} suggests this subgrouping within the data in the individual participant series. 
 
 TODO: talk about the subgroups, label the series.
 
