@@ -116,7 +116,7 @@ The insights presented in this work offer a foundation for future visualization 
    \teaser{
    \centering
    \includegraphics[width=16cm]{./img/teaser}
-   \caption{Sum of step counts following an intervention event shows event response dynamics. TODO: color by events}
+   \caption{Sum of step counts following an intervention event shows event response dynamics. TODO: color by events, TODO: also include side-by-side comparison and reference it from text?}
   }
 
 %% Uncomment below to disable the manuscript note
@@ -303,7 +303,12 @@ The stacked bars in figure \ref{fig:knowMeCompare} (right) are colored by partic
 This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
 
 The linegraph allows for identification of unqiue individuals (such as red, light blue TODO: mark these and reference by marker not color), but the stackplot better highlights the overall effect and also shows the number of events considered.
-Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display. The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded. 
+Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display.
+The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded. 
+
+TODO: eqtns
+
+Equation \ref{eqtn:lineVsStack} shows the difference in aggregation methods for line vs stacked views.
 
 Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure?) following the delivery of a physical-activity-suggesting sms message. 
 Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention. 
