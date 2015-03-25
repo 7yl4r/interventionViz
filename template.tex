@@ -173,8 +173,12 @@ The insights presented in this work offer a foundation for future visualization 
 
 %% \section{Introduction} %for journal use above \firstsection{..} instead
 
-TODO: refs are from ubicomp submission
+\subsection{Motivation}
 
+\subsubsection{Why Health Interventions?}
+TODO: Why should we/society care about health interventions?
+
+\subsubsection{Why Do Intervention Dynamics Matter?}
 The confluence of pervasive sensing, machine learning, network access, and computation is facilitating new approaches to improving behavioral choices.
 These systems can detect behaviors and psychological states such as stress\cite{chang2011,lu2012}, physical activity\cite{li2010,emken2012}, social interaction\cite{wyatt2011}, and smoking\cite{sazonov2011}, automatically and, in some cases, in real-time.
 These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health\cite{klasnja2012,nahum2012}, productivity\cite{ho2005,sohn2005,jewell2011}, personal finance\cite{gallego2012}, and environmental stewardship.\cite{elliott2012}
@@ -184,25 +188,55 @@ Current theories of behavior appear inadequate to inform state-of-the-art interv
 In addition to metrics of success, behavioral theorists need tools to help understand the dynamics of behavioral responses to a stimulus.
 We present methods for exploring these dynamical responses through data visualization.
 
-\subsection{Current Intervention Methods}
+\subsubsection{Contributions}
+TODO: summarize prev. work (1 paragraph)
+
+TODO: summarize work done (1 paragraph - maybe a long one)
+
+TODO: summarize contributions (1 paragraph - maybe a long one)
+
+TODO: Bulleted list of 2-3 contributions
+
+TODO: highlight why should viz community care!
+
+\subsection{Previous Work}
+\subsubsection{Current Intervention Methods}
 TODO: EXAMPLES OF JITAI (Just In Time Adaptive Interventions) ANALYSIS and HOW METHODS FALL SHORT
 
-\subsection{Related Event-based Time Series Visualization}
+\subsubsection{Related Event-based Time Series Visualization}
 TODO: INSPIRATION TAKEN FROM EXISTING VIZ WORK
 
 
-\subsection{Example Application: Physical Activity}
+\section{Design Considerations}
+TODO:
+User Goals
+Characterize how people respond to interventions, especially over time
+Assess intervention effectiveness (efficacy, tolerability, ease of use)
+Characterize how differences among individuals, sub-groups, and contexts affect effectiveness and dynamics of response
+Identify new interventions for future testing (hypothesis generation)
+Tasks (should follow from goals…)
+see section 4 below
+Dataset
+General characteristics of intervention datasets
+Avatar dataset
+KnowMe
+Control
+Why these datasets?
+Similarities and differences among datasets.
+do any of the differences suggest different approaches?  Do the differences matter for this paper?
+
+\section{Example Application: Physical Activity}
 As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of >8 days.
 In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts.
 In addition to this data, a control dataset with known intervention responses is included for comparison.
 
-\subsubsection{mAvatar Study}
+\subsection{mAvatar Study}
 An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based “live wallpaper” deployed on Android phones.
 Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity.
 Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games).
 Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count.
 
-\subsubsection{KnowMe Study}
+\subsection{KnowMe Study}
 In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor (PAdevice??) for 3 days.
 Physical activity was measured continuously and was monitored in real time.
 When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone.
@@ -210,13 +244,13 @@ Each text message is manually crafted to prompt the subject to be more physicall
 
 MORE DETAILS NEEDED
 
-\subsubsection{Control Dataset}
+\subsection{Control Dataset}
 The control dataset is the result of manual recording of one subject undergoing an imaginary, very potent intervention.
 Whenever the subject was at his desk a random timer was set for an interval ranging from 10 to 120 minutes.
 When the timer went off, the time was logged and the subject intentionally increased his level of physical activity for a period of no less than 5 minutes.
 Step counts were recorded throughout the duration of the two-week study period using a fitbit one electronic pedometer.
 
-\section{Design}
+\section{Tasks}
 Existing “macro-scale” methods can determine if an intervention has a significant influence over our target behavior, but it does not give much insight into how the event has an effect over time.
 The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
 Now that we can measure outcomes at much higher frequencies, methods which leverage this additional information should be adopted.
@@ -346,6 +380,9 @@ In this case, researchers attribute the apparent lack of effect to an ambiguity 
 Figure \ref{fig:mAvatarDifference} suggests this subgrouping within the data in the individual participant series.
 
 TODO: talk about the subgroups (+ response vs -response), label the series.
+
+\section{Domain Expert Feedback}
+TODO: what do domain experts think about these methods (Donna? Eric?)
 
 \section{Discussion and Future Work}
 
