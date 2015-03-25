@@ -282,15 +282,20 @@ For instance, an intervention delivered on a mobile device is always delivered w
 That is, the user is always using the phone when the intervention is delivered. 
 It is possible that "using the phone" has it's own unique effect on the behavioral measure. 
 Thus, using "phone use" events as a baseline against which to compare "phone use and intervention delivery" strengthens the chance that the observed effect is a result of the intervention itself and not the result of frequently concurrent contextual forces.
-For example, in the control dataset, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
 
-To represent this visually we return to the use of line averages due to the confounding nature of negatively-valued bars in stacked graphs.
+Using the control dataset as an example, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
+
+To represent a difference between two intervention effect time series visually we return to the use of line averages due to the confounding nature of negatively-valued bars in stacked graphs.
 
 TODO: fig line graph of controlData avg(intervention)-avg(control)
 
 
 \subsection{Comparing Event Types}
 Aforementioned methods used to provide a contextual baseline of comparison for events can also be applied to allow for a comparison between two event types. 
+By treating one event as the baseline, differences between the events can be visualized.
+Positively-valued areas of the resulting chart indicate times when the "experimental event" had a greater positive effect on the target measure, or, conversely, that the "control event" had a greater negative effect on the target measure. 
+
+
 The mAvatar dataset contains two types of intervention which may be interesting to compare: 1) active-avatar viewing, 2) sedentary-avatar viewing.
 In this case, the two event types are theoretically opposite in effect, meaning that the sedentary-avatar effect should resemble a mirrored version of the active-avatar effect.
 Furthermore, a comparison should thus allow for even better isolation of the behavioral response to the intervention.
@@ -317,6 +322,21 @@ This summary of step counts following an avatar view event (either sedentary or 
 
 TODO: show comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
 
+
+\section{Discussion & Future Work}
+
+\subsection{Modeling Observed Effects}
+TODO? Some example models of the aforementioned effects for control and/or knowMe data.
+
+transfer function modeling?
+fitting of a fluid-flow analogy using a priori constructs?
+other?
+
+\subsection{Characterizing Psychological Influence of Events via Response Signature}
+TODO? different psychological mechanisms of delivery used by an intervention could be identified by the dynamics observed
+
+\subsection{Statistical Analysis of Features}
+TODO: I think that to do this right we need to perform intervention analysis using transfer function modeling within arima framework
 
 \section{Conclusion}
 The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time. 
