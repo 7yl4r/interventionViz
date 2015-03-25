@@ -317,15 +317,26 @@ Figure \ref{fig:mAvatarDifference} suggests this subgrouping within the data in 
 TODO: talk about the subgroups (+ response vs -response), label the series.
 
 \subsection{Dealing With Overlapped Data Frames}
-When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data. For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
+When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data. 
+For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
 
-TODO: show simple example with simple bump looks like periodic decay if another event 10m later occurs frequently. 
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/eventOverlapExample.png}
+\caption{Overlapping analysis windows confounds observed effect after time-alignment.}
+\label{fig:overlapExample}
+\end{figure}
 
-Figure 47 shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored. 
-Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used. 
-This summary of step counts following an avatar view event (either sedentary or active) gives a baseline to which we can compare active-avatar and sedentary-avatar views.
+Figure \ref{fig:overlapExample} illustrates this point by showing how events falling within each other's windows of analysis confound the data and ultimately yields a signal quite unlike the actual effect response.
+In real data, this is further complicated by the non-linear way in which effects are expected to combine.
+Study designs utilizing methods outlined in this paper should design studies to minimize overlapping analysis windows.
 
-TODO: show comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
+Event overlap becomes somewhat inevitable, however, for large event window sizes. 
+
+TODO: figure: comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
+
+Figure \ref{???} shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored. 
+Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used because very few events are so isolated.
 
 
 \section{Discussion and Future Work}
