@@ -95,32 +95,6 @@
 
 %% Abstract section.
 \abstract{
-
-\comment{
-TODO: use (some of) this text:
-
-Ever since [], behavioral scientists have sought theories to explain, influence and change human behavior.
-Theories are  built on constructs that explain or act as prerequisites for performance (or lack of performance) of a behavior.
-For example, constructs such as location, social networks, and time of day (external context) influence behavior as much or more so than a person's internal traits and states, such as personality, emotional state, and mental health.
-With the right theory in hand, behavioral scientists can develop interventions that target these constructs to effectively drive behavior change (ref to Figure of simple cause and effect model).
-
-However, such theory-driven approaches to  behavioral interventions have shown limited success. There are likely many reasons for this, but one clear reason is that the underlying behavioral theories driving such interventions is wrong.
-
-Recent advances in sensing and ubiquitous computing are enabling examination of behavior at much smaller time scales (on the order of seconds) and in a wide range of daily life contexts.  The goal of this work is thus to ...
-
-
-Behavior change is the art and science of facilitating adoption of new behaviors or abandoning of old behaviors. Behavior change is particularly important in health care.
-Many of today's major health challenges can be mapped back to individual behavioral choices.
-For example, smoking and exercise are behaviors that clearly affect health and longevity (by increasing the chance of getting cancer, or decreasing the chance of obesity and diabetes).
-
-There are many reasons why behavior change is hard: people build up habits over time, behaviors may be tied to addictive substances or activities, behavior is tied to normal daily human experience and context (i.e. smoking more often when with a certain group of individuals or in a particular location).
-
-
-
-New wearable sensing technologies are changing the way we
-}
-
-
 With the advent of research-grade wearable sensor suites and increasingly ubiquitous human-computer interface comes the opportunity for a new generation of behavioral theory and behavior change methodologies.
 Just-in-time interventions (JITIs) designed to optimize a subjects behavior based on their momentary context are under exploration as a potentially powerful ally for practitioners and commercial behavior health applications.
 Analysis of the effect an intervention has on a target behavior, however, is a complex task not well handled by current methods.
@@ -176,17 +150,22 @@ The insights presented in this work offer a foundation for future visualization 
 \subsection{Motivation}
 
 \subsubsection{Why Health Interventions?}
-TODO: Why should we/society care about health interventions?
-
-\subsubsection{Why Do Intervention Dynamics Matter?}
+% Why should society care about health interventions?
 Despite significant advances in the theory and practice of behavioral science, humans continue make poor behavioral choices on a daily basis, and the reasons for those choices remain, to some extent, uncharted. 
 The consequences of these daily choices are often insignificant in the moment but over time build up to larger individual and societal problems. 
+In fact, many of today's greatest health challenges can be mapped back to individual behavioral choices.
 A habitual lack of physical activity, poor diet, and smoking is likely to lead to a variety of health problems (e.g., obesity, diabetes, heart disease, cancer, chronic pain, depression), lower quality of life and shortened lifespans \cite{franco2005, dunn2001, yanbaeva2007, ross2000}. 
+Smoking and lack of exercise are behaviors that clearly affect health and longevity (by increasing the chance of getting cancer, or decreasing the chance of obesity and diabetes), but the general populus seems to lack power over their own habits.
 Similar challenges exist outside the realm of personal health. 
 Academic success is a function of attending class and completing assigned tasks, among other daily behaviors\cite{cooper2006}.
 In personal finance, poor day-to-day purchasing decisions can add up to large financial debts\cite{norvilitis2003}.
 
-The confluence of pervasive sensing, machine learning, network access, and computation is facilitating new approaches to improving behavioral choices.
+Behavior change is the art and science of facilitating adoption of new behaviors or abandoning of old behaviors.
+Behavior change interventions are particularly important to modern health care systems in developed countries, where preventative behavioral treatment recieves little attention from heath care practitioners.
+
+
+\subsubsection{Why Do Intervention Dynamics Matter?}
+The confluence of pervasive sensing, machine learning, network access, and computation is facilitating new approaches to improving behavioral choices. 
 These systems can detect behaviors and psychological states such as stress\cite{chang2011,lu2012}, physical activity\cite{li2010,emken2012}, social interaction\cite{wyatt2011}, and smoking\cite{sazonov2011}, automatically and, in some cases, in real-time.
 These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health\cite{klasnja2012,nahum2012}, productivity\cite{ho2005,sohn2005,jewell2011}, personal finance\cite{gallego2012}, and environmental stewardship.\cite{elliott2012}
 New methods for evaluating these behavioral interventions remain underexplored and conventional methods of analysis do not offer the level of detail needed to explore the implicit dynamics of just-in-time, interactive, or adaptive interventions.
@@ -212,7 +191,12 @@ TODO: highlight why should viz community care!
 
 \subsection{Previous Work}
 \subsubsection{Current Intervention Methods}
+
 TODO: EXAMPLES OF JITAI (Just In Time Adaptive Interventions) ANALYSIS and HOW METHODS FALL SHORT
+
+Recent advances in sensing and ubiquitous computing are enabling examination of behavior at much smaller time scales (on the order of seconds) and in a wide range of daily life contexts.
+
+New wearable sensing technologies are changing the way we...
 
 \subsubsection{Related Event-based Time Series Visualization}
 TODO: INSPIRATION TAKEN FROM EXISTING VIZ WORK
@@ -453,6 +437,16 @@ Figure \ref{???} shows a comparison between data retrieved using the two methods
 Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used because very few events are so isolated.
 
 \subsection{Modeling Observed Effects}
+Ever since [], behavioral scientists have sought theories to explain, influence and change human behavior.
+Theories are  built on constructs that explain or act as prerequisites for performance (or lack of performance) of a behavior.
+For example, constructs such as location, social networks, and time of day (external context) influence behavior as much or more so than a person's internal traits and states, such as personality, emotional state, and mental health.
+With the right theory in hand, behavioral scientists can develop interventions that target these constructs to effectively drive behavior change (ref to Figure of simple cause and effect model).
+
+However, such theory-driven approaches to  behavioral interventions have shown limited success. 
+There are likely many reasons for this, but one clear reason is that the underlying behavioral theories driving such interventions is wrong.
+
+
+
 TODO? Some example models of the aforementioned effects for control and/or knowMe data.
 
 transfer function modeling?
@@ -466,6 +460,9 @@ TODO? different psychological mechanisms of delivery used by an intervention cou
 TODO: I think that to do this right we need to perform intervention analysis using transfer function modeling within arima framework
 
 \section{Conclusion}
+There are many reasons why behavior change is hard: people build up habits over time, behaviors may be tied to addictive substances or activities, behavior is tied to normal daily human experience and context (i.e. smoking more often when with a certain group of individuals or in a particular location).
+The full potential of behavioral interventions - particularly JITAIs - will continue unrealized until mechanistic methods of behavior modeling are adopted by the behavior science community.
+
 The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time.
 These methods, when combined with a computational modeling approach to understanding human behavior may enable behavioral scientists to formulate more accurate and more application-ready theories, leading to more effective behavioral interventions.
 
