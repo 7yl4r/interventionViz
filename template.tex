@@ -98,6 +98,7 @@
 With the advent of research-grade wearable sensor suites and increasingly ubiquitous human-computer interface comes the opportunity for a new generation of behavioral theory and behavior change methodologies.
 Just-in-time interventions (JITIs) designed to optimize a subjects behavior based on their momentary context are under exploration as a potentially powerful ally for practitioners and commercial behavior health applications.
 Analysis of the effect an intervention has on a target behavior, however, is a complex task not well handled by current methods.
+
 In this work we explore the application of aggregated time-series visualization techniques to aid analysis of intervention event effects with emphasis on the dynamics of participant response to intervention.
 To highlight the strengths and caveats of the techniques employed, data from two trial studies of physical activity interventions (n=11, n=10) and one empirical control dataset (n=1) are utilized.
 The insights presented in this work offer a foundation for future visualization research addressing this problem and as a guide for behavioral scientists in need of more novel methods of analysis.
@@ -126,7 +127,15 @@ The insights presented in this work offer a foundation for future visualization 
    \includegraphics[width=5cm]{./img/teaser/knowMe_60m_bars.png}
    \includegraphics[width=5cm]{./img/teaser/steps_60m_after_view_event_active.png}
    
-   \caption{TODO: label subfigs A,B,C,D. A)Aggregated step counts following an intervention event shows overall event response dynamics and individual variations across events. TODO: color by events and make shorter B) Aggregation of step counts showing dramatic response to the the control intervention. C) Heart rate data aggregated across KnowMe particpants shows a mild response to an SMS intervention. D) Aggregated step counts of subjects briefly exposed to an active mAvatar shows little trend. TODO: reference B,C,D from text}
+   \caption{
+   TODO: label subfigs A,B,C,D. 
+   A)Aggregated step counts surrounding an intervention event shows event response dynamics and individual variations across events. 
+   TODO: color by events and make shorter 
+   B) Aggregation of step counts showing dramatic response to the the control intervention. 
+   C) Heart rate data aggregated across KnowMe particpants shows a mild response to an SMS intervention. 
+   D) Aggregated step counts of subjects briefly exposed to an active mAvatar shows little trend. 
+   TODO: reference B,C,D from text
+   }
   }
 
 %% Uncomment below to disable the manuscript note
@@ -175,24 +184,34 @@ These systems can detect behaviors and psychological states such as stress\cite{
 These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health\cite{klasnja2012,nahum2012}, productivity\cite{ho2005,sohn2005,jewell2011}, personal finance\cite{gallego2012}, and environmental stewardship.\cite{elliott2012}
 New methods for evaluating these behavioral interventions remain underexplored and conventional methods of analysis do not offer the level of detail needed to explore the implicit dynamics of just-in-time, interactive, or adaptive interventions.
 
-Current theories of behavior appear inadequate to inform state-of-the-art intervention development /cite{Riley2011}, but current methods of intervention analysis are limited in their ability to inform the development of state-of-the-art behavioral theories.
-In addition to metrics of success, behavioral theorists need tools to help understand the dynamics of behavioral responses to a stimulus.
-We present methods for exploring these dynamical responses through data visualization.
-
 \subsubsection{Contributions}
-TODO: summarize prev. work (1 paragraph)
+% summarize previous work (1 paragraph)
+In addition to metrics of success of an intervention, behavioral theorists need tools to help understand the dynamics of behavioral responses to a stimulus.
+Due to the lack of a dynamical treatment of behavior within theories, existing models behavior appear inadequate to inform state-of-the-art intervention development \cite{Riley2011}.
+Applicable methods of intervention analysis \cite{???} and data visualization have been slow to reach behavioral researchers, dramatically limiting their ability to develop of state-of-the-art behavioral theories to address these shortcomings.
 
-TODO: summarize work done (1 paragraph - maybe a long one)
+% summarize work done (1 paragraph - maybe a long one)
+In order to help bridge the gap between state-of-the-art data analysis and behavioral research, in this paper we present methods for exploring the dynamical responses of behavior-change intervention events built on a foundation of user-driven design principles.
+Through a survey of 11 behavioral scientists and countless consultations with domain experts on the cutting edge of behavioral intervention design, we have identified and attempted to address a set of goals and key tasks which are of special interest to researchers in this area. 
 
-TODO: summarize contributions (1 paragraph - maybe a long one)
+% summarize contributions (1 paragraph - maybe a long one)
+In this paper we present:
+% Bulleted list of 2-3 contributions
+\begin{enumerate}
+  \item{a set of data analysis goals to guide visualization and tool design in this domain}
+  \item{key tasks in this domain in need of improved methodology}
+  \item{visualization methods which address some of these tasks}
+\end{enumerate}
 
-TODO: Bulleted list of 2-3 contributions
-
+% an alternative framing of of our contributions: 
+\comment{
   - to understand how we can use this type of data to accomplish these domain-specific tasks?
   - to propose new hypotheses and techniques to support these tasks?
   - to propose lessons learned that may apply for similar viz problems.
+}
 
-TODO: highlight why should viz community care!
+% highlight why should viz community care!
+This work breaks new ground in the appliation domain, but also provides guidelines for future work bridging the data visualization and behavioral science communities.
 
 \subsection{Previous Work}
 \subsubsection{Current Intervention Methods}
@@ -209,6 +228,8 @@ TODO: INSPIRATION TAKEN FROM EXISTING VIZ WORK
 
 \section{Design Considerations}
 TODO: How is the problem here similar to what has come before?  How is it different?  
+
+TODO: mention the SBM study data here!
 
 A set of design considerations has been developed based on many iterations of user-driven discussions to identify 1) common goals of an intervention efficacy analysis, 2) the key analysis tasks which need to be enabled or improved, 3) typical characteristics of intervention datasets, and 4) weaknesses in current methodologies. 
 
