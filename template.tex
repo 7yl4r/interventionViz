@@ -313,13 +313,13 @@ These intervention response dynamics as shown in figure \ref{fig:exampleComplica
 
 \begin{figure}
 \centering
-\includegraphics[width=0.45\columnwidth]{./img/perfect_intervention_individual_events.png}
-\includegraphics[width=0.45\columnwidth]{./img/perfect_intervention.png}
-\caption{Comparison of all event responses (left) to average response (right) surrounding the control dataset intervention.}
+\includegraphics[width=0.9\columnwidth]{./img/perfect_intervention_individual_events.png}
+\includegraphics[width=0.9\columnwidth]{./img/perfect_intervention.png}
+\caption{Comparison of all event responses (top) to average response (bottom) surrounding the control dataset intervention.}
 \label{fig:interventionAverage}
 \end{figure}
 
-Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (left)).
+Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (top)).
 This is a familiar problem with a familiar solution.
 By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can average the series together in order to identify effects which are common between all events.
 Aggregated measurements surrounding each event begin to give a better picture of the latency and delay of the response.
@@ -328,9 +328,9 @@ This approach can be taken for all events in one subject's time series to charac
 
 
 Figure \ref{fig:interventionAverage} makes clear the value of this method for drawing general conclusions from a set of seemingly random data.
-When looking at all events individually (figure \ref{fig:interventionAverage} left), it is difficult to spot any pattern in the series.
+When looking at all events individually (figure \ref{fig:interventionAverage} top), it is difficult to spot any pattern in the series.
 One notable event seems to stand above the rest from 20-60min following the intervention, and a cursory glance at this visual might lead one to believe that this intervention was only effective in that one instance.
-When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} right).
+When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom).
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
 The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
@@ -348,17 +348,17 @@ Color mapping of events can also be used to visually group events based on time 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.45\columnwidth]{./img/knowMe_60m_lines.png}
-\includegraphics[width=0.45\columnwidth]{./img/knowMe_60m_bars.png}
+\includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_lines.png}
+\includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_bars.png}
 \caption{Comparison of knowMe average lines and stacked bars.}
 \label{fig:knowMeCompare}
 \end{figure}
 
 Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot.
-The thin lines in figure \ref{fig:knowMeCompare} (left) represent the response of each participant to the event averaged across all events for that participant.
+The thin lines in figure \ref{fig:knowMeCompare} (top) represent the response of each participant to the event averaged across all events for that participant.
 The thick line shows the average across all participant’s average series.
 
-The stacked bars in figure \ref{fig:knowMeCompare} (right) are colored by participant ID, and each represent one unique event - stacked in order of event incidence.
+The stacked bars in figure \ref{fig:knowMeCompare} (bottom) are colored by participant ID, and each represent one unique event - stacked in order of event incidence.
 This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
 
 The linegraph allows for identification of unqiue individuals (such as red, light blue TODO: mark these and reference by marker not color), but the stackplot better highlights the overall effect and also shows the number of events considered.
@@ -369,7 +369,7 @@ TODO: eqtns
 
 Equation \ref{eqtn:lineVsStack} shows the difference in aggregation methods for line vs stacked views.
 
-Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure?) following the delivery of a physical-activity-suggesting sms message.
+Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure. which one?) following the delivery of a physical-activity-suggesting sms message.
 Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
 
 The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
