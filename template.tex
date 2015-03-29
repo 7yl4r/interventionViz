@@ -81,9 +81,9 @@
 \item
  T. Murray is with the University of South Florida. E-mail: tylarmurray@mail.usf.edu.
 \item
- D. Spruijt-Metz is with .
+ D. Spruijt-Metz is with the Univeristy of Southern California Center for Economic and Social Research.
 \item
- E. Hekler is with .
+ E. Hekler is with Arizona State University.
 \item
  A. Raij is with the University of Central Florida Institute for Simulation and Training.
 }
@@ -174,11 +174,11 @@ Academic success is a function of attending class and completing assigned tasks,
 In personal finance, poor day-to-day purchasing decisions can add up to large financial debts\cite{norvilitis2003}.
 
 Behavior change is the art and science of facilitating adoption of new behaviors or abandoning of old behaviors.
-Behavior change interventions are particularly important to modern health care systems in developed countries, where preventative behavioral treatment recieves little attention from heath care practitioners.
+Behavior change interventions are particularly important to modern health care systems in developed countries, where preventative behavioral treatment receives little attention from heath care practitioners.
 
 
 \subsubsection{Why Do Intervention Dynamics Matter?}
-The confluence of pervasive sensing, machine learning, network access, and computation is facilitating new approaches to improving behavioral choices. 
+The confluence of pervasive sensing, machine learning, network access, and computation facilitates new approaches to guiding behavioral choices. 
 These systems can detect behaviors and psychological states such as stress\cite{chang2011,lu2012}, physical activity\cite{li2010,emken2012}, social interaction\cite{wyatt2011}, and smoking\cite{sazonov2011}, automatically and, in some cases, in real-time.
 These data provide new opportunities for the human-computer interaction (HCI), behavioral science, and other related communities to develop user interfaces for mobile behavioral interventions that help users make better in the moment behavioral choices related to health\cite{klasnja2012,nahum2012}, productivity\cite{ho2005,sohn2005,jewell2011}, personal finance\cite{gallego2012}, and environmental stewardship.\cite{elliott2012}
 New methods for evaluating these behavioral interventions remain underexplored and conventional methods of analysis do not offer the level of detail needed to explore the implicit dynamics of just-in-time, interactive, or adaptive interventions.
@@ -210,25 +210,26 @@ In this paper we present:
 }
 
 % highlight why should viz community care!
-This work breaks new ground in the appliation domain, but also provides guidelines for future work bridging the data visualization and behavioral science communities.
+This work breaks new ground in the application domain, but also provides guidelines for future work bridging the data visualization and behavioral science communities.
 
 \subsection{Previous Work}
-\subsubsection{Current Intervention Methods}
+\subsubsection{Related Event-based Time Series Visualization}
+"Lifelines" \cite{plaisant1996} allow for the exploration of events in a series for one individual, and new research in event sequence analysis \cite{Wongsuphasawat2011}, including analysis of event patterns \cite{Wongsuphasawat2012, fails2006, vrotsou2007} and the relation of multiple symptoms \cite{wongsuphasawat2011outflow} helps researchers examine outcomes on a "macro-scale" across many subjects by aggregating records into a single view. 
+Additionally, the problem of identifying patterns at multiple time scales has been partially addressed through clustering of time series \cite{van1999}, and methods for exploring the "paths" traversed by many individuals between many event types and statistical analyses to highlight relationships between events has recently been established \cite{gotz2014}.
 
+To our knowledge, little existing work addresses the dynamics of a numerical variable's response to a behavioral intervention event. 
+Statistical methods of intervention analysis \cite{box1975}, have been applied across various disciplines but thus far there has been little demand for these methods in behavioral science.
+Only recently has new wearable sensing technology made time-intensive, in-the-wild measurements feasible.
+Additionally, the prospect of ubiquitous intervention delivery via mobile devices and the concept of Just-in-Time-Adaptive-Interventions (JiTAIs) have introduced a new demand for a more detailed understanding of human behavior.
+
+\subsubsection{Current Intervention Methods}
 TODO: EXAMPLES OF JITAI (Just In Time Adaptive Interventions) ANALYSIS and HOW METHODS FALL SHORT
 
 Recent advances in sensing and ubiquitous computing are enabling examination of behavior at much smaller time scales (on the order of seconds) and in a wide range of daily life contexts.
 
+Existing work on the analysis of systems usability \cite{harrison1994} may need to be applied to the evaluation of JiTAI systems, however, this work focuses largely on a single record, rather than generalizations drawn from across many.
+
 New wearable sensing technologies are changing the way we...
-
-\subsubsection{Related Event-based Time Series Visualization}
-Existing research in event sequence analysis /cite{Wongsuphasawat2011}, including analysis of event paterns /cite{Wongsuphasawat2012, fails2006, vrotsou2007} and the relation of multiple sympotms /cite{wongsuphasawat2011outflow} helps researchers examine outcomes on a "macro-scale". 
-Additionaly, methods for exploring the flow of individuals between many event types and statistical analysis to highlight relationships between events has been established /cite{gotz2014}.
-
-
-
-TODO: INSPIRATION TAKEN FROM EXISTING VIZ WORK
-
 
 \section{Design Considerations}
 TODO: How is the problem here similar to what has come before?  How is it different?  
@@ -470,6 +471,9 @@ TODO: figure: comparison of events selected with/without overlap from mAvatar da
 Figure \ref{???} shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored.
 Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used because very few events are so isolated.
 
+\subsection{Alternative Stacked-Area Representation}
+Use of the "themeRiver/streamgraph" \cite{havre200, byron2008} paradigm for plotting stacked area charts may offer an improved view of the contribution of individual time series to the aggregated result, further easing the identification of outlier participants or events.
+
 \subsection{Modeling Observed Effects}
 Ever since [], behavioral scientists have sought theories to explain, influence and change human behavior.
 Theories are  built on constructs that explain or act as prerequisites for performance (or lack of performance) of a behavior.
@@ -491,7 +495,8 @@ other?
 TODO? different psychological mechanisms of delivery used by an intervention could be identified by the dynamics observed
 
 \subsection{Statistical Analysis of Features}
-TODO: I think that to do this right we need to perform intervention analysis using transfer function modeling within arima framework
+Much existing work on the statistical testing of between-phase differences in traditional AB study designs \cite{parker2003} is applied in the evaluation of the efficacy of a one-time or repeatedly applied intervention, and methods for evaluating the likelihood of features in a time-series are also well documented \cite{gorman1996, suen1989}.
+Through combination of existing intervention analysis techniques \cite{box1975}, goodness-of-fit evaluations of model formulations \cite{pankratz2012} in comparison to surrogate time series, and the presented visualization methods, researchers can begin to build dynamic models of human behaviors to enable clever JiTAIs.
 
 \section{Conclusion}
 There are many reasons why behavior change is hard: people build up habits over time, behaviors may be tied to addictive substances or activities, behavior is tied to normal daily human experience and context (i.e. smoking more often when with a certain group of individuals or in a particular location).
