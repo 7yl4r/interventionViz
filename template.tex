@@ -286,45 +286,69 @@ Furthermore, the optimization of intervention delivery is a highly context-depen
 \subsubsection{Response and Effectiveness vs Subgroups}
 Another goal of the behavioral researcher is to characterize how differences among individuals, sub-groups, and contexts affect effectiveness and dynamics of response.
 Subgroup analysis allows for existing theories to grow in complexity through incorporation of new conditions.
-The exploration of 
 
 \subsubsection{hypothesis generation}
-Identify new interventions for future testing
+It is out of the focused exploration of subgroupings from an experiment that researchers often identify new ideas for future experimentation.
+Similarly, through detailed analysis of subgroups based on intervention context come ideas for future interventions.
+Researchers desire the ability to explore these subgroups through focused inspection, but they also wish to leverage automated or guided analysis in order to aid in identification of new hypotheses worth testing.
 
 \subsection{Tasks}
-(should follow from goals…)
+% (should follow from goals…)
+From the goals outlined above, we have identified several key tasks which a researcher might undertake in order to reach these goals.
 
-TODO: What types of tasks will they need to do?
+% TODO: What types of tasks will they need to do?
+\subsubsection{Measure average change in level, velocity, acceleration, variability}
+TODO
 
-see section 4 below
+\subsubsection{Measure average delay and decay characteristics of intervention}
+TODO
 
+\subsubsection{Average / Accumulated Responses, effectiveness, length of effect, delay, decay, etc}
+TODO
 
 \subsection{Characteristics of Intervention Datasets}
+% TODO: What kind of data do they have (or more important starting to get)?  
 
-TODO: What kind of data do they have (or more important starting to get)?  
+Behavioral scientists with data-overload are becoming increasingly common as wearable sensors increase in popularity.
+There no doubt exist many under-utilized datasets with novel contributions to theory waiting to be discovered.
 
-* Multiple time-scales
-* crossover designs
-* high-frequency numerical measures: PA, ECG, GPS, ??
-* numerical measures with low frequency: EMA constructs, blood-draws
-* contextual, nominal data: activity classification, location classification, social contexts
+Common features of contemporary behavioral research dataset include:
 
-TODO: Use descriptions of our datasets to highlight common characteristics?
+\begin{itemize}
+	\item{Multiple time-scales - may types of data also means measurement at many different frequencies}
+	\item{crossover designs - within-subject comparison is the preferred method for gauging efficacy of an intervention}
+	\item{high-frequency numerical measures - Accelerometers, ECG, GPS, and much more}
+	\item{numerical measures with low frequency - Ecological Momentary Assessment (EMA) constructs, blood-draws}
+	\item{contextual, nominal data at various frequencies - activity classification, location classification, social contexts}
+\end{itemize}
 
+% TODO: Use descriptions of our datasets to highlight common characteristics?
+
+\comment{
+I think this is well covered elsewhere (intro especially)
 \subsection{Weaknesses in Current Methodology}
 
 TODO: What do they need to know about intervention dynamics?
+}
 
 \section{Example Application: Physical Activity}
 As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of >8 days.
 In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts.
 In addition to this data, a control dataset with known intervention responses is included for comparison.
 
-TODO: Why these datasets?
+% TODO: Why these datasets?
+These datasets provide a good test bed for application of the visualization methods presented here.
+Measurement of physical activity (PA) is a well-studied topic, and many interventions focus on increasing physical activity.
+At the same time, the cognitive processes surrounding physical activity are familiar to most researchers and numerical representation of PA is easily interpreted.
 
-TODO: Similarities and differences among datasets.
+% TODO: Similarities and differences among datasets.
+The differences in the chosen dataset also highlight the strengths and weaknesses of methodologies. 
+The n-of-one control dataset with a strong intervention acts a baseline with predetermined response characteristics.
+The mAvatar study data shows less prominent effects study wide, but has potentially interesting subgroups for exploration.
+Additionally the mAvatar data is unique in that it contains two interventions targeting the same theory, but influencing in opposing directions.
+Lastly, the KNOWME data represents a JiTAI with a clear study-wide effect.
 
-TODO: do any of the differences suggest different approaches?  Do the differences matter for this paper?
+% TODO: do any of the differences suggest different approaches?  Do the differences matter for this paper?
 
 \subsection{mAvatar Study}
 An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based “live wallpaper” deployed on Android phones.
