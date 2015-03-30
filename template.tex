@@ -260,13 +260,33 @@ In this section we define the primary goals of a behavior-change intervention re
 These goals have been developed through an extensive literature review, a survey of 11 behavioral scientists interested in applying modeling and simulation to their work, and close collaboration with domain experts.
 
 \subsubsection{Assess Intervention Effectiveness}
-(efficacy, tolerability, ease of use)
+%(efficacy,
+First and foremost researchers are interested in showing that their intervention was effective.
+T-tests and p-values - despite their shortcomings \cite{nuzzo2014} - have long dominated this domain, so researchers are looking for equally succinct indicators of success.
+The nature of highly-personalized, context-dependent, and rapidly-optimized JiTAIs makes these analyses difficult for specific interventions, and thus researchers have been limited to testing over larger time-scales - comparing intervention-on vs control days, for instance.
 
-\subsubsection{Characterize intervention repsonse}
-especially over time
+% tolerability, 
+In addition to the gauged effectiveness of an intervention, behavioral researchers wish to understand the limits on intervention "dosage" for each participant before they drop out of the program or stop engaging with the intervention.
+This metric is often referred to as the "tolerability" of the intervention.
+In order to maximize the effectiveness of a behavioral intervention, researchers want to optimize the dose so that the intervention pushes the subject as much as possible, while still staying within a tolerable range for the subject.
+In order to meet the desire to explore tolerability analysis, methods fall somewhere between drug-dosage tolerability and analysis of user drop-out rate in a software system.
 
-\subsubsection{response and effectiveness vs subgroups}
-Characterize how differences among individuals, sub-groups, and contexts affect effectiveness and dynamics of response
+% ease of use?
+
+\subsubsection{Characterize Intervention Response}
+Second only to measuring the efficacy of an intervention, the second goal of the behavioral researcher is to characterize how the intervention works.
+Multiple behavioral intervention reviews have shown that interventions explicitly based on psychological theory are more effective \cite{glanz2010}.
+Though there is clear motive to use existing theory as a guide for intervention design, behavioral theories cannot answer many of the questions being raised by JiTAI designers \cite{riley2011}.
+
+Little research exists on the dynamics of intervention response, so it is not clear what amount of time must be measured after intervention delivery in order to record the effect.
+For within-subject comparison, is one day of each condition long enough? - or perhaps the effect can last many days?
+Researchers need a more detailed understanding of the dynamics of intervention response in order to plan experiments to ensure that various experimental conditions do not overlap and confound each other in within-subject studies.
+Furthermore, the optimization of intervention delivery is a highly context-dependent problem which can greatly benefit from an increased understanding of user state over time.
+
+\subsubsection{Response and Effectiveness vs Subgroups}
+Another goal of the behavioral researcher is to characterize how differences among individuals, sub-groups, and contexts affect effectiveness and dynamics of response.
+Subgroup analysis allows for existing theories to grow in complexity through incorporation of new conditions.
+The exploration of 
 
 \subsubsection{hypothesis generation}
 Identify new interventions for future testing
