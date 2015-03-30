@@ -298,19 +298,19 @@ This section forgone in lieu of a focus on tasks in the viz section
 % (should follow from goals…)
 From the goals outlined above, we have identified several key tasks which a researcher might undertake in order to reach these goals.
 
-% TODO: What types of tasks will they need to do?
+% What types of tasks will they need to do?
 \subsubsection{Measure average change in level, velocity, acceleration, variability}
-TODO
+TO DO
 
 \subsubsection{Measure average delay and decay characteristics of intervention}
-TODO
+TO DO
 
 \subsubsection{Average / Accumulated Responses, effectiveness, length of effect, delay, decay, etc}
-TODO
+TO DO
 }
 
 \subsection{Characteristics of Intervention Datasets}
-% TODO: What kind of data do they have (or more important starting to get)?  
+% What kind of data do they have (or more important starting to get)?  
 
 Behavioral scientists with data-overload are becoming increasingly common as wearable sensors increase in popularity.
 There no doubt exist many under-utilized datasets with novel contributions to theory waiting to be discovered.
@@ -330,8 +330,7 @@ Common features of contemporary behavioral research dataset include:
 \comment{
 I think this is well covered elsewhere (intro especially)
 \subsection{Weaknesses in Current Methodology}
-
-TODO: What do they need to know about intervention dynamics?
+	What do they need to know about intervention dynamics?
 }
 
 \section{Example Application: Physical Activity}
@@ -339,12 +338,12 @@ As an example application to demonstrate the strengths of the proposed visual an
 In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts.
 In addition to this data, a control dataset with known intervention responses is included for comparison.
 
-% TODO: Why these datasets?
+% Why these datasets?
 These datasets provide a good test bed for application of the visualization methods presented here.
 Measurement of physical activity (PA) is a well-studied topic, and many interventions focus on increasing physical activity.
 At the same time, the cognitive processes surrounding physical activity are familiar to most researchers and numerical representation of PA is easily interpreted.
 
-% TODO: Similarities and differences among datasets.
+% Similarities and differences among datasets.
 The differences in the chosen dataset also highlight the strengths and weaknesses of methodologies. 
 The n-of-one control dataset with a strong intervention acts a baseline with predetermined response characteristics.
 The mAvatar study data shows less prominent effects study wide, but has potentially interesting subgroups for exploration.
@@ -461,7 +460,19 @@ The linegraph allows for identification of unqiue individuals (such as red, ligh
 Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display.
 The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded.
 
-TODO: eqtns
+\begin{equation}
+	\bar{y}(t) = \frac{1}{N} \sum\limits_{i=1}^N y_i(t)
+	\label{eq:barAvg}
+\end{equation}
+
+where $N$ is the total number of events across all participants and $y_i$ represents the time series for event $i$
+
+\begin{equation}
+	\bar{y}(t) = \frac{1}{P} \sum\limits_{p=1}^P \frac{1}{n_p} \sum\limits{i=1}^n_p y_{i,p}(t)
+	\label{eq:lineAvg}
+\end{equation}
+	where $P$ is the number of participants, and $y_{i,p}$ represents the time series for subject $p$'s event $i$, and $n_p$ represents the number of events for subject $p$
+
 
 Equation \ref{eqtn:lineVsStack} shows the difference in aggregation methods for line vs stacked views.
 
@@ -569,7 +580,7 @@ The full potential of behavioral interventions - particularly JITAIs - will cont
 
 The presented visualization methods allow for more detailed analysis of how a subject’s behavior responds to a stimuli over time.
 These methods, when combined with a computational modeling approach to understanding human behavior may enable behavioral scientists to formulate more accurate and more application-ready theories, leading to more effective behavioral interventions.
-
+ 
 %% if specified like this the section will be committed in review mode
 \acknowledgments{
 The authors wish to thank A, B, C. This work was supported in part by
