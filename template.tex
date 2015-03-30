@@ -462,18 +462,16 @@ The line-graph approach considers each subject equally regarless of the number o
 
 \begin{equation}
 	\bar{y}(t) = \frac{1}{N} \sum\limits_{i=1}^N y_i(t)
-	\caption{where $N$ is the total number of events across all participants and $y_i$ represents the time series for event $i$}
 	\label{eq:barAvg}
 \end{equation}
 
 \begin{equation}
 	\bar{y}(t) = \frac{1}{P} \sum\limits_{p=1}^P \frac{1}{n_p} \sum\limits{i=1}^n_p y_{i,p}(t)
-	\caption{where $P$ is the number of participants, and $y_{i,p}$ represents the time series for subject $p$'s event $i$, and $n_p$ represents the number of events for subject $p$}
 	\label{eq:lineAvg}
 \end{equation}
 	
-Equations \ref{eq:barAvg} and \ref{eq:lineAvg} shows the difference in aggregation methods for line vs stacked views.
-Data aggregated using method \ref{eq:lineAvg} do a better job to ensure that one participant does not skew results, but can give too much weight to data from a participant with few events. 
+Equations (\ref{eq:barAvg}) and (\ref{eq:lineAvg}) shows the difference in aggregation methods for line vs stacked views where $N$ is the total number of events across all participants, $P$ is the number of participants, $n_p$ represents the number of events for subject $p$,  $y_i$ represents the time series for event $i$, and $y_{i,p}$ represents the time series for subject $p$'s event $i$.
+Aggretating data via method (\ref{eq:lineAvg}) does a better job to ensure that one participant does not skew results, but can give too much weight to data from a participant with few events.
 
 Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure. which one?) following the delivery of a physical-activity-suggesting sms message.
 Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
