@@ -19,15 +19,31 @@ Event overlap becomes somewhat inevitable, however, for large event window sizes
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/eventOverlapExample.png}
-\caption{Overlapping analysis windows confounds observed effect after time-alignment.}
-\label{fig:overlapExample}
+\includegraphics[width=0.9\columnwidth]{./img/mAvatarViews_586_noOverlap.png}
+\caption{Stackplot of step counts in the 30 minutes surrounding 586 phone-view events from the mAvatar dataset with no other events within 30min.}
+\label{fig:mAvatarNoOverlap}
 \end{figure}
 
-TODO: figure: comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
-
-Figure \ref{???} shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored.
+Figure \ref{mAvatarNoOverlap} shows a selection of data identical to that in figure \ref{mAvatarPhoneContext}, but without the inclusion of overlapping windows of analysis surrounding the events.
 Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used because very few events are so isolated.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/mAvatarViews_46_12hr_noOverlap.png}
+\caption{Stackplot of step counts in the 12hrs surrounding 46 phone-view events from the mAvatar dataset with no other events within 12 hours.}
+\label{fig:mAvatarNoOverlap12hr}
+\end{figure}
+
+As is shown in \ref{fig:mAvatarNoOverlap12hr}, increasing the window of analysis to 12hours surrounding the phone-view event leaves only 46 events, and a noticeable increase in the variability of the data is observed.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/events_v_windowSize.png}
+\caption{Percent coverage of events in the mAvatar datset vs size of exclusion window surrounding the event.}
+\label{fig:eventsVwindow}
+\end{figure}
+
+For phone-view events among the population analyzed by the mAvatar study, we can estimate percent coverage of events available for ``clean'' analysis through the distribution shown in figure \ref{fig:eventsVwindow}.
 
 \subsection{Alternative Stacked-Area Representation}
 Use of the "themeRiver/streamgraph" \cite{havre200, byron2008} paradigm for plotting stacked area charts may offer an improved view of the contribution of individual time series to the aggregated result, further easing the identification of outlier participants or events.
