@@ -1,4 +1,6 @@
 \section{Tasks}
+From the goals outlined in the design guidelines section, we have identified several key tasks which a researcher might undertake and present visuals to address these tasks.
+
 Existing ``macro-scale'' methods can determine if an intervention has a significant influence over our target behavior, but they do not give much insight into how the event has an effect over time.
 The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
 Now that measurement of outcomes can be performed at much higher frequencies, methods which leverage this additional information should be adopted.
@@ -6,10 +8,8 @@ Now that measurement of outcomes can be performed at much higher frequencies, me
 The dynamic response of the targeted behavior leading up to and following the event tells us much more about how this effect begins and fades over time.
 A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible.
 
-From the goals outlined in the design guidelines section, we have identified several key tasks which a researcher might undertake and present visuals to address these tasks.
-
 \subsection{Highlighting Event Dynamics}
-The dynamics surrounding a particular event are most commonly shown using a time series.
+The dynamics surrounding a particular event are most intuively shown using a time series.
 The instance or span of the event is marked on the time-axis and the value of the behavioral measure (physical activity in this case) is encoded in the height at each point in time.
 We can describe several idealized intervention types based on behavioral theory using this common visualization paradigm.
 
@@ -29,7 +29,7 @@ Figure \ref{fig:exampleSignals} shows the case where an event instantaneously ca
 \label{fig:exampleComplications}
 \end{figure}
 
-These intervention response dynamics as shown in figure \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
+These intervention response dynamics (shown in figure \ref{fig:exampleComplications}) are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
 One method for examining event dynamics is to explore each participant's record individually (perhaps segmented by day), and to mark the events and manually explore individual responses.
 Since this examination is taking place over many series, it is prudent to utilize sparklines \cite{tufte2006} or horizongraphs \cite{reijner2008} to allow for examination of many series simultaneously.
 In doing this, however, it quickly becomes apparent that behavioral intervention data in this format is much too unwieldy.
@@ -49,7 +49,7 @@ By time-shifting our data view so that each intervention event falls at t=0 in a
 \end{figure}
 
 Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (top)).
-To a researcher looking at the plot of individual event responses figure \ref{fig:interventionAverage} (top), it might seem that only the intervention plotted in purple was an effective intervention, acting with a delay of approximately 30m, and decaying rapidly 120m after the event.
+To a researcher looking at the plot of individual event responses in figure \ref{fig:interventionAverage} (top), it might seem that only the intervention plotted in purple was an effective intervention, acting with a delay of approximately 30m, and decaying rapidly 120m after the event.
 However, we know that the control dataset - by design - includes interventions that were 100\% effective, acting with minimal delay and beginning decay at 5m.
 Plotting these series with aforementioned ``summary dashboard'' methods may allow researchers to identify this pattern more easily, but the average signal is still difficult to pull out of the noise.
 Luckily, this is a familiar problem with a familiar solution.
@@ -58,20 +58,22 @@ When looking at all events individually (figure \ref{fig:interventionAverage} to
 When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom), and the purple series is exposed as an outlier.
 
 This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
+Inn fact, a subset of groups can even be selected and analyzed in order to enable advanced subgroup analysis.
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
 The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
-In addition to the nearly immediate response, a longer-lasting effect reaching out to approximately 180m after the event seems to be boosting step count, though the all-events view in figure \ref{fig:interventionAverage} as well as the stacked-events display in Figure 1 reveal that there are two events which may be the the cause.
-Though the average line-graph makes spotting effects easy, we must be wary of outlying events or participants which can skew the average.
+In addition to the nearly immediate response, a longer-lasting effect reaching out to approximately 180m after the event seems to be boosting step count, though the all-events view in figure \ref{fig:interventionAverage} as well as the stacked-events display in figure 1B reveals that there are two outlier events which may be the sole cause.
+These finding show how, although the average line-graph makes spotting effects easy, we must be wary of outlying events or participants which can skew the average.
 This danger can be sometimes mitigated through use of median in place of mean, but since step-count does not obey a normal distribution (0 values are almost always modal), that approach does not work well in this case.
 
 \subsection{Stacking}
-To address the shortcomings of the aforementioned average-line shown in figure \ref{fig:interventionAverage}, individual events can be shown on the graph and stacked.
-This yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
-While still “averaging out” random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
+To address the shortcomings of the aforementioned average-line shown in figure \ref{fig:interventionAverage}, we can show all individual events stacked on a single graph.
+This aggregation method yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
+While still averaging out random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
 For an n-of-one dataset such as the control dataset, events can be graphed with a unique color.
-In figure 1, event colors are chosen based on the order in which they were observed.
+In figure 1A, event colors are chosen based on the order in which they were observed.
 Color mapping of events can also be used to visually group events based on time of day, location of the event, or participant.
+For obvious reasons, however, encoding participant number in the bar color for the control dataset (figure 1B) is not very meaningful.
 
 \begin{figure}
 \centering
@@ -81,23 +83,22 @@ Color mapping of events can also be used to visually group events based on time 
 \label{fig:knowMeCompare}
 \end{figure}
 
-Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot.
+For a plot of many participants, encoding participant in color allows the visual to display both event-level and event-group-level detail in addition to the overarching response.
+Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot using data from the KNOWME dataset.
 The thin lines in figure \ref{fig:knowMeCompare} (top) represent the response of each participant to the event averaged across all events for that participant.
-The thick line shows the average across all participants' average series.
-
+The thick gray line shows the average across all participants' average series.
 The stacked bars in figure \ref{fig:knowMeCompare} (bottom) are colored by participant ID, and each bar represents one unique event - stacked in order of event incidence.
 This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
 For instance, it is clear that the participant shown in purple responded to the intervention, due to the purple ``bulge'' but we can also see that this effect is largely the result of a single event within the participant's series.
 We can thus conclude both that intervention was effective on average, while also noting that there exists some variable within participants moderating the efficacy of our intervention.
 
-%The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
-
 Figure \ref{fig:knowMeCompare} shows an increase in accelerometry counts following the delivery of a physical-activity-suggesting sms message.
 Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
+The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but detailed methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
 For additional comparison to the control data, also consider the average-line view in figure \ref{fig:interventionAverage}, and the stackplot shown in figure 1B.
 Though the highlighted windows are relatively small (to highlight the intervention response), much wider context around the event can be plotted, such as that shown in figure 1A.
 
-This same analysis is applied to figure 1C, but with another variable in the KNOWME dataset.
+This same analysis is applied to figure 1C, but with another variable in the KNOWME dataset, heart rate.
 Both the accelerometry counts and heart rate signals should act as proxies of physical activity, and we can see by comparing these graphs that the correlation is clear.
 Note however, the different dynamics of each variable's response.
 Accelerometry counts are more directly tied to behavior - which can be erratic and non-linear, thus the dynamics observed are more volatile, while heart rate acts as smoothed function of accelerometry, responding less quickly and decaying more slowly than accelerometry data.
@@ -118,6 +119,7 @@ The line-graph approach considers each subject equally regardless of the number 
 	
 Equations (\ref{eq:barAvg}) and (\ref{eq:lineAvg}) shows the difference in aggregation methods for line vs stacked views where $N$ is the total number of events across all participants, $P$ is the number of participants, $n_p$ represents the number of events for subject $p$,  $y_i$ represents the time series for event $i$, and $y_{i,p}$ represents the time series for subject $p$'s event $i$.
 Aggretating data via method (\ref{eq:lineAvg}) does a better job to ensure that one participant does not skew results, but can give too much weight to data from a participant with few events.
+In this particular case, it makes little difference, however, since the number of events per participant are roughly equal.
 
 \subsection{Characterize Intervention Delivery Context}
 In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered.
@@ -171,10 +173,8 @@ Thus, the difference should accentuate the intervention's effect signature and b
 \label{fig:mAvatarDifference}
 \end{figure}
 
-Even with two oppositely-polarized events figure \ref{fig:mAvatarDifference} fails to show the dramatic effect a researcher might hope for on average.
-The lack of observed effect indicates that the intervention had no effect on average.
-In this case, researchers attribute the apparent lack of effect to an ambiguity in study design which led to two opposing conditions: 1) subjects respond positively to physically-active avatars via the Proteus Effect \cite{yee2009proteus} 2) subjects respond negatively to physically-active avatars via falsely perceived biofeedback.
-Figure \ref{fig:mAvatarDifference} may suggest this subgrouping within the data in the individual participant series.
+Even with two oppositely-polarized events, however, figure \ref{fig:mAvatarDifference} fails to show the dramatic effect a researcher might hope for.
+In this case, study investigators attribute the apparent lack of effect to an ambiguity in study design which led to two opposing conditions: 1) subjects respond positively to physically-active avatars via the Proteus Effect \cite{yee2009proteus} 2) subjects respond negatively to physically-active avatars via falsely perceived biofeedback, and figure \ref{fig:mAvatarDifference} may indeed suggest this subgrouping within the data in the individual participant series.
 
 \comment{
 \section{Domain Expert Feedback}
