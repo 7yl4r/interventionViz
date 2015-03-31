@@ -87,6 +87,12 @@ The thick line shows the average across all participant’s average series.
 
 The stacked bars in figure \ref{fig:knowMeCompare} (bottom) are colored by participant ID, and each represent one unique event - stacked in order of event incidence.
 This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
+The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
+Figure \ref{fig:knowMeCompare} shows an increase in heart rate following the delivery of a physical-activity-suggesting sms message.
+Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
+For additional comparison to the control data, also consider the average-line view in figure \ref{fig:interventionAverage}, and the stackplot shown in figure 1B.
+Though the highlighted windows are relatively small (to highlight the intervention response), much wider context around the event can be plotted, such as that shown in figure 1A.
+
 This same analysis is applied to figure 1C, and the correlation between the increase in acceleromtry counts and heart rate is clear.
 Note however, the different dynamics of each variable's response.
 Accelerometry counts are more directly tied to behavior, and thus the dyanamics observed are more volatile, while heart rate acts as smoothed function of accelerometry, responding less quickly and decaying more slowly than accelerometry data.
@@ -107,11 +113,6 @@ The line-graph approach considers each subject equally regarless of the number o
 	
 Equations (\ref{eq:barAvg}) and (\ref{eq:lineAvg}) shows the difference in aggregation methods for line vs stacked views where $N$ is the total number of events across all participants, $P$ is the number of participants, $n_p$ represents the number of events for subject $p$,  $y_i$ represents the time series for event $i$, and $y_{i,p}$ represents the time series for subject $p$'s event $i$.
 Aggretating data via method (\ref{eq:lineAvg}) does a better job to ensure that one participant does not skew results, but can give too much weight to data from a participant with few events.
-
-Figure \ref{fig:knowMeCompare} shows an increase in heart rate (TODO: use a different measure. which one?) following the delivery of a physical-activity-suggesting sms message.
-Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
-
-The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
 
 \subsection{Characterize Intervention Delivery Context}
 In some cases introducing a “control event” against which to compare the experimental event can help isolate the intervention from the context in which it is delivered.
@@ -134,9 +135,10 @@ Consider, for instance, the unanimously reported case of subjects viewing the ph
 Thus we should perhaps expect to see a peak in PA driven by the desire to illicit a response from the avatar, which is viewed only a few minutes later.
 This interpretation is quite speculative and other features of figure \ref{fig:mAvatarPhoneContext} are not so easily explained.
 It is clear, however, that this is not a flat baseline that we may expect to find on average, and exploration of dynamics surrounding the active and sedentary avatar viewings ought to subtract this baseline to account for the overlapping of this context-driven (rather than event-driven) signal.
-In the specific case of the mAvatar dataset, however, we may utilize a direct comparison between events, rather than a comparison of each event vs the baseline.
+This masking baseline signal is apparent in the unadjusted plot of active-avatar views shown in figure 1D. 
+Rather than a comparison of each event vs the baseline, however, the specific case of the mAvatar dataset allows us to utilize a direct comparison between similar, opposing events (active-avatar vs sedentar-avatar).
 
-/comment{
+\comment{
 The results of this analysis were not interesting; the control data looks the same when processed this way
 
 Using the control dataset as an example, random points in time when the subject was at his desk can serve as the control event against which to compare the experimental "intervention" event.
