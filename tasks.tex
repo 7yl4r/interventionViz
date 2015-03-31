@@ -42,9 +42,9 @@ By time-shifting our data view so that each intervention event falls at t=0 in a
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/perfect_intervention_individual_events.png}
+\includegraphics[width=0.9\columnwidth]{./img/perfect_intervention_individual_events_smoothed.png}
 \includegraphics[width=0.9\columnwidth]{./img/perfect_intervention.png}
-\caption{Comparison of all event responses (top) to average response (bottom) surrounding the control dataset intervention.}
+\caption{Comparison of all event responses smoothed over a 15m rolling window (top) to average response (bottom) surrounding the control dataset intervention.}
 \label{fig:interventionAverage}
 \end{figure}
 
@@ -55,7 +55,7 @@ Plotting these series with aforemented ``summary dashboard'' methods may allow r
 Luckily, this is a familiar problem with a familiar solution.
 Since our data has been time-shifted to place the time of event at t=0, we can simply average the series together in order to identify nomothetic trends across all events.
 When looking at all events individually (figure \ref{fig:interventionAverage} top), it is difficult to spot any pattern in the series.
-When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom).
+When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom), and the purple series is exposed as an outlier.
 
 This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
 
@@ -75,9 +75,9 @@ Color mapping of events can also be used to visually group events based on time 
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_lines.png}
+\includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_lines_smoothed15m.png}
 \includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_bars.png}
-\caption{Comparison of knowMe average lines and stacked bars.}
+\caption{Comparison of knowMe average lines (smoothed over 15m rolling window) and stacked bars.}
 \label{fig:knowMeCompare}
 \end{figure}
 
@@ -161,8 +161,8 @@ Thus, the difference should accentuate the intervention's effect signature and b
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/mAvatar_difference_events.png}
-\caption{Active-event series average minus sedentary-event series average. (average shown as bold)}
+\includegraphics[width=0.9\columnwidth]{./img/mAvatar_difference_events_smooth15m.png}
+\caption{Active-event series average minus sedentary-event series average smoothed over a 15m rolling window. (average across participants shown in bold)}
 \label{fig:mAvatarDifference}
 \end{figure}
 
