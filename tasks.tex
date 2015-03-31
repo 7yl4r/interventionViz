@@ -30,8 +30,15 @@ Figure \ref{fig:exampleSignals} shows the case where an event instantaneously ca
 \end{figure}
 
 These intervention response dynamics as shown in figure \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
+One method for examining event dynamics is to explore each particpant's record individually (perhaps segmented by day), and to mark the events and manually explore individual responses.
+Since this examination is taking place over many series, it is prudent to utilize sparklines \cite{tufte2006} or horizongraphs \cite{reijner2008} to allow for examination of many series simultaneously.
+In doing this, however, it quickly becomes apparent that behavioral intervention data in this format is much too unweildy.
+Random contextual fluctuations and inconsistency in frequency of intervention delivery makes visual identification of patterns extremely difficult when viewing an entire series, let alone series for multiple participants. 
+Thus, we focus first on the characterizing the response to single events only, and can later address the issue of event history treated as a contextual subgrouping of all events.
 
 \subsection{Event-time Alignment}
+Plotting individual events one-by-one allows a researcher to explore the ideographic details of that particular event, but in order to draw out generalizations across groups of events (be it by participant, context, or any other selector) events must be plotted relative to the time of the event, rather than the start of the study.
+By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can view many events on a common time frame.
 
 \begin{figure}
 \centering
@@ -42,16 +49,15 @@ These intervention response dynamics as shown in figure \ref{fig:exampleComplica
 \end{figure}
 
 Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (top)).
-This is a familiar problem with a familiar solution.
-By time-shifting our data view so that each intervention event falls at t=0 in a time-series, we can average the series together in order to identify effects which are common between all events.
-Aggregated measurements surrounding each event begin to give a better picture of the latency and delay of the response.
+To a researcher looking at the plot of individual event responses figure \ref{fig:interventionAverage} (top), it might seem that only the intervention plotted in purple was an effective intervention, acting with a delay of approximately 30m, and decaying rapidly 120m after the event.
+However, we know that the control dataset - by design - includes interventions that were 100\% effective, acting with minimal delay and beginning decay at 5m.
+Plotting these series with aforemented ``summary dashboard'' methods may allow researchers to identify this pattern more easily, but the average signal is still difficult to pull out of the noise.
+Luckily, this is a familiar problem with a familiar solution.
+Since our data has been time-shifted to place the time of event at t=0, we can simply average the series together in order to identify nomothetic trends across all events.
+When looking at all events individually (figure \ref{fig:interventionAverage} top), it is difficult to spot any pattern in the series.
+When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom).
 
 This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
-
-Figure \ref{fig:interventionAverage} makes clear the value of this method for drawing general conclusions from a set of seemingly random data.
-When looking at all events individually (figure \ref{fig:interventionAverage} top), it is difficult to spot any pattern in the series.
-One notable event seems to stand above the rest from 20-60min following the intervention, and a cursory glance at this visual might lead one to believe that this intervention was only effective in that one instance.
-When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom).
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
 The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
