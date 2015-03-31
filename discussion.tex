@@ -13,6 +13,9 @@ For instance, if our analysis targets the 30min following an event, and the even
 
 Figure \ref{fig:overlapExample} illustrates this point by showing how events falling within each other's windows of analysis confound the data and ultimately yields a signal quite unlike the actual effect response.
 In real data, this is further complicated by the non-linear way in which effects are expected to combine.
+An example of this effect can be seen in the four yellow to lime green series plotted in figure \ref{fig:interventionAverage} (top).
+The yellow peak near 0m represents a true intervention response, whereas the other three are artifacts introduced from relative nearness in time to the true response.
+In other words, the events analyzed in each of these series fall approximately -280, -150, 0, and 120 minutes relative to the third event, and those artifacts all reprsent the same data.
 Study designs utilizing methods outlined in this paper should design studies to minimize overlapping analysis windows.
 
 Event overlap becomes somewhat inevitable, however, for large event window sizes.
