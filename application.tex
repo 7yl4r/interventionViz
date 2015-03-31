@@ -1,19 +1,19 @@
 \section{Example Application: Physical Activity}
-As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of >8 days.
+As an example application to demonstrate the strengths of the proposed visual analytics we analyze two empirical datasets with a minute-level metric of physical activity level and intervention events delivered throughout a period of several days.
 In both studies interventions were delivered with the intent of increasing subjects’ physical activity, and responses to interventions varied between participants and delivery contexts.
 In addition to this data, a control dataset with known intervention responses is included for comparison.
 
 % Why these datasets?
 These datasets provide a good test bed for application of the visualization methods presented here.
-Measurement of physical activity (PA) is a well-studied topic, and many interventions focus on increasing physical activity.
+Measurement of physical activity (PA) is a well-studied topic and many interventions focus on increasing physical activity, making PA a prime target for testing our methods.
 At the same time, the cognitive processes surrounding physical activity are familiar to most researchers and numerical representation of PA is easily interpreted.
 
 % Similarities and differences among datasets.
-The differences in the chosen dataset also highlight the strengths and weaknesses of methodologies. 
-The n-of-one control dataset with a strong intervention acts a baseline with predetermined response characteristics.
+The differences in the chosen datasets serve to highlight the strengths and weaknesses of methodologies outlined. 
+The n-of-one control dataset with a strong intervention acts a baseline with predetermined response characteristics which should be easily identified by our analysis.
 The mAvatar study data shows less prominent effects study wide, but has potentially interesting subgroups for exploration.
 Additionally the mAvatar data is unique in that it contains two interventions targeting the same theory, but influencing in opposing directions.
-Lastly, the KNOWME data represents a JiTAI with a clear study-wide effect.
+Lastly, the KNOWME data represents a JiTAI with a clear study-wide effect and multiple behavioral measures.
 
 The interventions in these datasets are all expected to primarily effect the level of the target behavior (see figure \ref{fig:exampleSignals}), but the dynamics of the response may differ greatly. 
 The control intervention (by design) is expected to have minimal decay and a decay which starts 5m following the intervention. 
@@ -23,18 +23,18 @@ We have found no existing work to guide our expectations for the dynamics of the
 % TODO: do any of the differences suggest different approaches?  Do the differences matter for this paper?
 
 \subsection{mAvatar Study}
-An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based “live wallpaper” deployed on Android phones.
+An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based live wallpaper deployed on Android phones.
 Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity.
 Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games).
 Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count.
 
 \subsection{KnowMe Study}
-In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor (PAdevice??) for 3 days.
+In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor for 3 days.
 Physical activity was measured continuously and was monitored in real time.
 When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone.
 Each text message is manually crafted to prompt the subject to be more physically active.
 
-MORE DETAILS NEEDED
+%MORE DETAILS NEEDED
 
 \subsection{Control Dataset}
 The control dataset is the result of manual recording of one subject undergoing an imaginary, very potent intervention.
