@@ -21,23 +21,37 @@ Thus we can expect the control intervention to closely resemble figure \ref{fig:
 We have found no existing work to guide our expectations for the dynamics of the mAvatar and KNOWME datasets, but each targets very different psychological concepts which might be expected to have unique dynamic signatures.
 
 % TODO: do any of the differences suggest different approaches?  Do the differences matter for this paper?
-
-\subsection{mAvatar Study}
-An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based live wallpaper deployed on Android phones.
-Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity.
-Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games).
-Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count.
-
-\subsection{KnowMe Study}
-In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor for 3 days.
-Physical activity was measured continuously and was monitored in real time.
-When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone.
-Each text message is manually crafted to prompt the subject to be more physically active.
-
-%MORE DETAILS NEEDED
+\noindent
+\begin{table}[H]
+\resizebox{\columnwidth}{!} {
+    \begin{tabular}{ l       |      l  |  p{1cm}      | l | l }
+		  Data Set        & n  & length (days) & intervention    & measures \\
+		  \hline
+		  control         & 1  & 14 & N/A                       & step count         \\
+		  mAvatar         & 11 & 8+ & glanceable avatar display & step count         \\
+		  KNOWME          & 10 & 3  & SMS message               & HR, accelerometry  \\
+    \end{tabular}
+}
+\caption {Summary of data sets used.}
+\end{table}
 
 \subsection{Control Dataset}
 The control dataset is the result of manual recording of one subject undergoing an imaginary, very potent intervention.
 Whenever the subject was at his desk a random timer was set for an interval ranging from 10 to 120 minutes.
 When the timer went off, the time was logged and the subject intentionally increased his level of physical activity for a period of no less than 5 minutes.
 Step counts were recorded throughout the duration of the two-week study period using a fitbit one electronic pedometer.
+
+\subsection{mAvatar Study}
+An alternating treatment design is used to examine subject behavior over a period of 8+ days in order to test the effect size of an avatar-based live wallpaper deployed on Android phones \cite{murray2013}.
+Subjects (n=11) aged 11-14 were exposed to a simple, animated cartoon avatar on their mobile device showing alternating levels of physical activity.
+Each day the avatar would either be active (playing basketball, running, bicycling) or sedentary (watching TV, on a computer, or playing video games).
+Fitbit One electronic pedometers were used to estimate subject levels of physical activity via step count.
+
+\subsection{KNOWME Study}
+In this study ten teenagers were asked to carry a smartphone and wear an accelerometer and a heart rate monitor for 3 days.
+Physical activity was measured continuously and was monitored in real time using the KNOWME system \cite{mitra2012}.
+When a subject had been continuously sedentary for two hours, a personalized SMS text message was sent to their phone.
+Each text message is manually crafted to prompt the subject to be more physically active.
+
+%MORE DETAILS NEEDED
+
