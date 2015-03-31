@@ -1,0 +1,96 @@
+\section{Design Considerations}
+%  How is the problem here similar to what has come before?
+Many of the research questions faced by JiTAI developers are similar to those of fixed interventions. 
+Researchers primary concerns remain centered arround assessment of an intervention's ability to effect the target behavior.
+Assessments are similarly judged by their reliability and validity, and good study design remains central to a good validation of intervention efficacy.
+
+% How is it different?  
+In addition to those existing, new challenges unique to JiTAI design and analysis must be addressed.
+As interventions grow in their abilities to adapt, the search space of the problem grows exponentially.
+Each additional "tailoring variable" or parameter added makes strictly empirical methods unfeasible.
+Furthermore, theoretical models of behavior at the small timescales applicable to JiTAIs are underdeveloped and largely usupported by empirical data. 
+
+Though research questions remain the same, the additional challenges introduced in JiTAI design suggest that more detailed analysis and modeling methods may be appropriate.
+Predictive modeling of behavior would allow for JiTAIs to optimize interventions based on quantitative, personalized models.
+In order to enable development of these models, data visualization methods for exploring intervention effect over time and across participants are needed. 
+
+When asked about the biggest hurdle blocking simulation and modeling from breaking into behavioral science, a majority of responders cited the need for better tools and collaboration to improve their understanding of the techniques.
+In order to facilitate development of these tools, we present a set of design considerations has been developed based on many iterations of user-driven discussions to identify 1) common goals of an intervention efficacy analysis, 2) the key analysis tasks which need to be enabled or improved, 3) typical characteristics of intervention datasets, and 4) weaknesses in current methodologies. 
+
+\subsection{User Goals}
+In this section we define the primary goals of a behavior-change intervention researcher looking to apply JiTAIs.
+These goals have been developed through an extensive literature review, a survey of 11 behavioral scientists interested in applying modeling and simulation to their work, and close collaboration with domain experts.
+
+\subsubsection{Assess Intervention Effectiveness}
+%(efficacy,
+First and foremost researchers are interested in showing that their intervention was effective.
+T-tests and p-values - despite their shortcomings \cite{nuzzo2014} - have long dominated this domain, so researchers are looking for equally succinct indicators of success.
+The nature of highly-personalized, context-dependent, and rapidly-optimized JiTAIs makes these analyses difficult for specific interventions, and thus researchers have been limited to testing over larger time-scales - comparing intervention-on vs control days, for instance.
+
+% tolerability, 
+In addition to the gauged effectiveness of an intervention, behavioral researchers wish to understand the limits on intervention "dosage" for each participant before they drop out of the program or stop engaging with the intervention.
+This metric is often referred to as the "tolerability" of the intervention.
+In order to maximize the effectiveness of a behavioral intervention, researchers want to optimize the dose so that the intervention pushes the subject as much as possible, while still staying within a tolerable range for the subject.
+In order to meet the desire to explore tolerability analysis, methods fall somewhere between drug-dosage tolerability and analysis of user drop-out rate in a software system.
+
+% ease of use?
+
+\subsubsection{Characterize Intervention Response}
+Second only to measuring the efficacy of an intervention, the second goal of the behavioral researcher is to characterize how the intervention works.
+Multiple behavioral intervention reviews have shown that interventions explicitly based on psychological theory are more effective \cite{glanz2010}.
+Though there is clear motive to use existing theory as a guide for intervention design, behavioral theories cannot answer many of the questions being raised by JiTAI designers \cite{riley2011}.
+
+Little research exists on the dynamics of intervention response, so it is not clear what amount of time must be measured after intervention delivery in order to record the effect.
+For within-subject comparison, is one day of each condition long enough? - or perhaps the effect can last many days?
+Researchers need a more detailed understanding of the dynamics of intervention response in order to plan experiments to ensure that various experimental conditions do not overlap and confound each other in within-subject studies.
+Furthermore, the optimization of intervention delivery is a highly context-dependent problem which can greatly benefit from an increased understanding of user state over time.
+
+\subsubsection{Response and Effectiveness vs Subgroups}
+Another goal of the behavioral researcher is to characterize how differences among individuals, sub-groups, and contexts affect effectiveness and dynamics of response.
+Subgroup analysis allows for existing theories to grow in complexity through incorporation of new conditions.
+
+\subsubsection{hypothesis generation}
+It is out of the focused exploration of subgroupings from an experiment that researchers often identify new ideas for future experimentation.
+Similarly, through detailed analysis of subgroups based on intervention context come ideas for future interventions.
+Researchers desire the ability to explore these subgroups through focused inspection, but they also wish to leverage automated or guided analysis in order to aid in identification of new hypotheses worth testing.
+
+\comment{
+This section forgone in lieu of a focus on tasks in the viz section
+\subsection{Tasks}
+% (should follow from goals…)
+From the goals outlined above, we have identified several key tasks which a researcher might undertake in order to reach these goals.
+
+% What types of tasks will they need to do?
+\subsubsection{Measure average change in level, velocity, acceleration, variability}
+TO DO
+
+\subsubsection{Measure average delay and decay characteristics of intervention}
+TO DO
+
+\subsubsection{Average / Accumulated Responses, effectiveness, length of effect, delay, decay, etc}
+TO DO
+}
+
+\subsection{Characteristics of Intervention Datasets}
+% What kind of data do they have (or more important starting to get)?  
+
+Behavioral scientists with data-overload are becoming increasingly common as wearable sensors increase in popularity.
+There no doubt exist many under-utilized datasets with novel contributions to theory waiting to be discovered.
+
+Common features of contemporary behavioral research dataset include:
+
+\begin{itemize}
+	\item{Multiple time-scales - may types of data also means measurement at many different frequencies}
+	\item{crossover designs - within-subject comparison is the preferred method for gauging efficacy of an intervention}
+	\item{high-frequency numerical measures - Accelerometers, ECG, GPS, and much more}
+	\item{numerical measures with low frequency - Ecological Momentary Assessment (EMA) constructs, blood-draws}
+	\item{contextual, nominal data at various frequencies - activity classification, location classification, social contexts}
+\end{itemize}
+
+% TODO: Use descriptions of our datasets to highlight common characteristics?
+
+\comment{
+I think this is well covered elsewhere (intro especially)
+\subsection{Weaknesses in Current Methodology}
+	What do they need to know about intervention dynamics?
+}

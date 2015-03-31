@@ -1,0 +1,51 @@
+\section{Discussion and Future Work}
+
+\subsection{Dealing With Overlapped Data Frames}
+When looking at data surrounding an event, we must be cognizant of how instances of the same event at another time may effect our data.
+For instance, if our analysis targets the 30min following an event, and the event frequently occurs at 10m intervals, the overlapping signals will create unwanted artifacts.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/eventOverlapExample.png}
+\caption{Overlapping analysis windows confounds observed effect after time-alignment.}
+\label{fig:overlapExample}
+\end{figure}
+
+Figure \ref{fig:overlapExample} illustrates this point by showing how events falling within each other's windows of analysis confound the data and ultimately yields a signal quite unlike the actual effect response.
+In real data, this is further complicated by the non-linear way in which effects are expected to combine.
+Study designs utilizing methods outlined in this paper should design studies to minimize overlapping analysis windows.
+
+Event overlap becomes somewhat inevitable, however, for large event window sizes.
+
+TODO: figure: comparison of events selected with/without overlap from mAvatar dataset to demonstrate difference (especially at high time intervals like no-overlap for 3hrs around event)
+
+Figure \ref{???} shows a comparison between data retrieved using the two methods of analysis: no overlap vs overlap ignored.
+Allowing no overlap between events helps ensure that multiple interventions effects do not skew the data, but ignoring these data can drastically reduce data sample if large times following the event are used because very few events are so isolated.
+
+\subsection{Alternative Stacked-Area Representation}
+Use of the "themeRiver/streamgraph" \cite{havre200, byron2008} paradigm for plotting stacked area charts may offer an improved view of the contribution of individual time series to the aggregated result, further easing the identification of outlier participants or events.
+
+\subsection{Modeling Observed Effects}
+Ever since [], behavioral scientists have sought theories to explain, influence and change human behavior.
+Theories are  built on constructs that explain or act as prerequisites for performance (or lack of performance) of a behavior.
+For example, constructs such as location, social networks, and time of day (external context) influence behavior as much or more so than a person's internal traits and states, such as personality, emotional state, and mental health.
+With the right theory in hand, behavioral scientists can develop interventions that target these constructs to effectively drive behavior change (ref to Figure of simple cause and effect model).
+
+However, such theory-driven approaches to  behavioral interventions have shown limited success. 
+There are likely many reasons for this, but one clear reason is that the underlying behavioral theories driving such interventions is wrong.
+
+
+TODO? Some example models of the aforementioned effects for control and/or knowMe data.
+
+transfer function modeling?
+fitting of a fluid-flow analogy using a priori constructs?
+other?
+
+\subsection{Characterizing Psychological Influence of Events via Response Signature}
+Different psychological mechanisms act on different time-scales and, likewise, with different dynamics. 
+The delay of effect onset and decay of the effect observed in data can be used to suggest what psychological mechanisms are at work.
+In this way, interventions could be characterized in terms of applicable theory via the the dynamics observed.
+
+\subsection{Statistical Analysis of Features}
+Much existing work on the statistical testing of between-phase differences in traditional AB study designs \cite{parker2003} is applied in the evaluation of the efficacy of a one-time or repeatedly applied intervention, and methods for evaluating the likelihood of features in a time-series are also well documented \cite{gorman1996, suen1989}.
+Through combination of existing intervention analysis techniques \cite{box1975}, goodness-of-fit evaluations of model formulations \cite{pankratz2012} in comparison to surrogate time series, and the presented visualization methods, researchers can begin to build dynamic models of human behaviors to enable clever JiTAIs.
