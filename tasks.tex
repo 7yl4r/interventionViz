@@ -30,9 +30,9 @@ Figure \ref{fig:exampleSignals} shows the case where an event instantaneously ca
 \end{figure}
 
 These intervention response dynamics as shown in figure \ref{fig:exampleComplications} are critically important for just-in-time adaptive intervention developers, but are largely unaddressed in current theory.
-One method for examining event dynamics is to explore each particpant's record individually (perhaps segmented by day), and to mark the events and manually explore individual responses.
+One method for examining event dynamics is to explore each participant's record individually (perhaps segmented by day), and to mark the events and manually explore individual responses.
 Since this examination is taking place over many series, it is prudent to utilize sparklines \cite{tufte2006} or horizongraphs \cite{reijner2008} to allow for examination of many series simultaneously.
-In doing this, however, it quickly becomes apparent that behavioral intervention data in this format is much too unweildy.
+In doing this, however, it quickly becomes apparent that behavioral intervention data in this format is much too unwieldy.
 Random contextual fluctuations and inconsistency in frequency of intervention delivery makes visual identification of patterns extremely difficult when viewing an entire series, let alone series for multiple participants. 
 Thus, we focus first on the characterizing the response to single events only, and can later address the issue of event history treated as a contextual subgrouping of all events.
 
@@ -51,7 +51,7 @@ By time-shifting our data view so that each intervention event falls at t=0 in a
 Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (top)).
 To a researcher looking at the plot of individual event responses figure \ref{fig:interventionAverage} (top), it might seem that only the intervention plotted in purple was an effective intervention, acting with a delay of approximately 30m, and decaying rapidly 120m after the event.
 However, we know that the control dataset - by design - includes interventions that were 100\% effective, acting with minimal delay and beginning decay at 5m.
-Plotting these series with aforemented ``summary dashboard'' methods may allow researchers to identify this pattern more easily, but the average signal is still difficult to pull out of the noise.
+Plotting these series with aforementioned ``summary dashboard'' methods may allow researchers to identify this pattern more easily, but the average signal is still difficult to pull out of the noise.
 Luckily, this is a familiar problem with a familiar solution.
 Since our data has been time-shifted to place the time of event at t=0, we can simply average the series together in order to identify nomothetic trends across all events.
 When looking at all events individually (figure \ref{fig:interventionAverage} top), it is difficult to spot any pattern in the series.
@@ -77,29 +77,34 @@ Color mapping of events can also be used to visually group events based on time 
 \centering
 \includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_lines_smoothed15m.png}
 \includegraphics[width=0.9\columnwidth]{./img/knowMe_60m_bars.png}
-\caption{Comparison of knowMe average lines (smoothed over 15m rolling window) and stacked bars.}
+\caption{Comparison of KNOWME average lines (smoothed over 15m rolling window) and stacked bars.}
 \label{fig:knowMeCompare}
 \end{figure}
 
 Figure \ref{fig:knowMeCompare} shows the difference between a plot of various average response lines and the stacked area plot.
 The thin lines in figure \ref{fig:knowMeCompare} (top) represent the response of each participant to the event averaged across all events for that participant.
-The thick line shows the average across all participant’s average series.
+The thick line shows the average across all participants' average series.
 
-The stacked bars in figure \ref{fig:knowMeCompare} (bottom) are colored by participant ID, and each represent one unique event - stacked in order of event incidence.
+The stacked bars in figure \ref{fig:knowMeCompare} (bottom) are colored by participant ID, and each bar represents one unique event - stacked in order of event incidence.
 This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
-The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
-Figure \ref{fig:knowMeCompare} shows an increase in heart rate following the delivery of a physical-activity-suggesting sms message.
+For instance, it is clear that the participant shown in purple responded to the intervention, due to the purple ``bulge'' but we can also see that this effect is largely the result of a single event within the participant's series.
+We can thus conclude both that intervention was effective on average, while also noting that there exists some variable within participants moderating the efficacy of our intervention.
+
+%The deviation from the mean as measured relative to the standard deviation gives a sense of how unlikely the signal is to be a random artifact, but methods for evaluating the statistical likelihood of observing a particular shape are not covered here.
+
+Figure \ref{fig:knowMeCompare} shows an increase in accelerometry counts following the delivery of a physical-activity-suggesting sms message.
 Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
 For additional comparison to the control data, also consider the average-line view in figure \ref{fig:interventionAverage}, and the stackplot shown in figure 1B.
 Though the highlighted windows are relatively small (to highlight the intervention response), much wider context around the event can be plotted, such as that shown in figure 1A.
 
-This same analysis is applied to figure 1C, and the correlation between the increase in acceleromtry counts and heart rate is clear.
+This same analysis is applied to figure 1C, but with another variable in the KNOWME dataset.
+Both the accelerometry counts and heart rate signals should act as proxies of physical activity, and we can see by comparing these graphs that the correlation is clear.
 Note however, the different dynamics of each variable's response.
-Accelerometry counts are more directly tied to behavior, and thus the dyanamics observed are more volatile, while heart rate acts as smoothed function of accelerometry, responding less quickly and decaying more slowly than accelerometry data.
+Accelerometry counts are more directly tied to behavior - which can be erratic and non-linear, thus the dynamics observed are more volatile, while heart rate acts as smoothed function of accelerometry, responding less quickly and decaying more slowly than accelerometry data.
 
-The linegraph allows for characterization of unqiue individuals, but the stackplot better highlights the overall effect and also shows the number of events considered.
-Another key difference between these two approaches is the proporitonate weighting of subjects into the global effect display.
-The line-graph approach considers each subject equally regarless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded.
+The linegraph allows for characterization of unique individuals, but the stackplot better highlights the overall effect and also shows the number of events considered.
+Another key difference between these two approaches is the proportionate weighting of subjects into the global effect display.
+The line-graph approach considers each subject equally regardless of the number of events recorded of that subject, whereas the stackplot considers the events equally and thus each subject's contribution is weighted by the number of events recorded.
 
 \begin{equation}
 	\bar{y}(t) = \frac{1}{N} \sum\limits_{i=1}^N y_i(t)
@@ -124,19 +129,19 @@ For example, by looking at all times the phone was viewed in the mAvatar dataset
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\columnwidth]{./img/mAvatarViews_1673_wOverlap.png}
-\caption{Stackplot of step counts in the 30 minutes surrounding 1673 phone-view events from the mAvatar dataset.}
+\includegraphics[width=0.9\columnwidth]{./img/mAvatarViews_1673_wOverlap_noLines.png}
+\caption{Stackplot of step counts aggregates in the 30 minutes surrounding 1673 phone-view events from the mAvatar dataset (individual event segmentation removed due to large number of events).}
 \label{fig:mAvatarPhoneContext}
 \end{figure}
 
 In figure \ref{fig:mAvatarPhoneContext}, we see a notable increase in steps leading up to phone usage.
-It is possible that this increase - though it prempts avatar viewing - is indeed caused by the avatar.
+It is possible that this increase - though it preempts avatar viewing - is indeed caused by the avatar.
 Consider, for instance, the unanimously reported case of subjects viewing the phone with the explicit purpose of seeing how the avatar would be affected by their behavior.
 Thus we should perhaps expect to see a peak in PA driven by the desire to illicit a response from the avatar, which is viewed only a few minutes later.
 This interpretation is quite speculative and other features of figure \ref{fig:mAvatarPhoneContext} are not so easily explained.
 It is clear, however, that this is not a flat baseline that we may expect to find on average, and exploration of dynamics surrounding the active and sedentary avatar viewings ought to subtract this baseline to account for the overlapping of this context-driven (rather than event-driven) signal.
 This masking baseline signal is apparent in the unadjusted plot of active-avatar views shown in figure 1D. 
-Rather than a comparison of each event vs the baseline, however, the specific case of the mAvatar dataset allows us to utilize a direct comparison between similar, opposing events (active-avatar vs sedentar-avatar).
+Rather than a comparison of each event vs the baseline, however, the specific case of the mAvatar dataset allows us to utilize a direct comparison between similar, opposing events (active-avatar vs sedentary-avatar).
 
 \comment{
 The results of this analysis were not interesting; the control data looks the same when processed this way
