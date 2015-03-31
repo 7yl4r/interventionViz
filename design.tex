@@ -7,7 +7,7 @@ Assessments are similarly judged by their reliability and validity, and good stu
 % How is it different?  
 In addition to those existing, new challenges unique to JiTAI design and analysis must be addressed.
 As interventions grow in their abilities to adapt, the search space of the problem grows exponentially.
-Each additional "tailoring variable" or parameter added causes combinatorial increases, eventually making strictly empirical methods unfeasible.
+Each additional "tailoring variable" or parameter added causes combinatorial increases, quickly making strictly empirical methods unfeasible.
 In order to generalize existing experimental results to provide guidance, researchers typically turn to theory, however, theoretical models of behavior at the small timescales applicable to JiTAIs are underdeveloped and largely unsupported by empirical data. 
 Though research questions remain the same, the additional challenges introduced in JiTAI design suggest that more detailed analysis and more rigorous modeling methods may be appropriate.
 In addition to guiding the design of JiTAIs, quantitative modeling of behavior response over time would allow for JiTAIs to optimize interventions based on context-aware, personalized models.
@@ -23,7 +23,7 @@ These goals have been developed through an extensive literature review, a survey
 
 \subsubsection{Assess Intervention Effectiveness}
 %(efficacy,
-First and foremost researchers are interested in showing that their intervention was effective.
+First and foremost, researchers are interested in showing that their intervention was effective.
 T-tests and p-values - despite their shortcomings \cite{nuzzo2014} - have long dominated this domain, so researchers are looking for equally succinct indicators of success.
 The nature of highly-personalized, context-dependent, and rapidly-optimized JiTAIs makes these analyses difficult for specific subsets of interventions, and thus researchers have been limited to testing entire systems over larger time-scales - comparing intervention-on vs control days, for instance.
 
@@ -43,11 +43,11 @@ For within-subject comparison, is one day of each condition long enough? - or pe
 Researchers need a more detailed understanding of the dynamics of intervention response in order to plan experiments to ensure that various experimental conditions do not overlap and confound each other in within-subject studies.
 Furthermore, the optimization of intervention delivery is a highly context-dependent problem which can greatly benefit from an increased understanding of user state over time.
 
-Just as important to the future of behavioral theory as subgroup analysis is the characterization of behavioral response dynamics.
-Behavioral researchers recognize the growing potential of technology to aid in optimization of interventions - particularly with respect to changes in behaviors over time. 
+The characterization of behavioral response dynamics is just as important to the future of behavioral theory as subgroup analysis.
+This will become increasingly relevant as behavioral researchers continue to recognize the growing potential of technology to aid in optimization of interventions - particularly with respect to changes in behaviors over time. 
 
 \subsubsection{tolerability} 
-In addition to the effectiveness of an intervention, behavioral researchers wish to understand the limits on intervention "dosage" for each participant before they drop out of the program or stop feeling engaged by the intervention.
+Behavioral researchers wish to understand the limits on intervention "dosage" for each participant before they drop out of the program or stop feeling engaged by the intervention.
 This metric is often referred to as the "tolerability" of the intervention.
 In order to maximize the effectiveness of a behavioral intervention, researchers want to optimize the dose so that the intervention pushes the subject as much as possible while still staying within a tolerable range.
 Researchers desire systems similar to those used to analyze dropout rate of a software system coupled with analyses borrowed from existing drug-dosage tolerability methodology.
@@ -87,7 +87,7 @@ There no doubt exist many under-utilized datasets with novel contributions to th
 Common features of contemporary behavioral research dataset include:
 
 \begin{itemize}
-	\item{Multiple time-scales - may types of data also means measurement at many different frequencies}
+	\item{Multiple time-scales - multi-scale measurement at very different frequencies}
 	\item{crossover designs - within-subject comparison is the preferred method for gauging efficacy of an intervention}
 	\item{high-frequency numerical measures - Accelerometers, ECG, GPS, and much more}
 	\item{numerical measures with low frequency - Ecological Momentary Assessment (EMA) constructs, blood-draws}
