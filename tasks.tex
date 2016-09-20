@@ -1,17 +1,28 @@
 \section{Tasks}
-From the goals outlined in the design guidelines section, we have identified several key tasks which a researcher might undertake and present visuals to address these tasks.
+\comment{
+    Existing ``macro-scale'' methods can determine if an intervention has a significant influence over our target behavior, but they do not give much insight into how the event has an effect over time.
+    The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
+    Now that measurement of outcomes can be performed at much higher frequencies, methods which leverage this additional information should be adopted.
 
-Existing ``macro-scale'' methods can determine if an intervention has a significant influence over our target behavior, but they do not give much insight into how the event has an effect over time.
-The dynamic response to the intervention has only recently become available for study thanks to increasingly ubiquitous wearable sensor technology, and so conventional methods have dealt with low-frequency outcome measures with clever study design.
-Now that measurement of outcomes can be performed at much higher frequencies, methods which leverage this additional information should be adopted.
-
-The dynamic response of the targeted behavior leading up to and following the event tells us much more about how this effect begins and fades over time.
-A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible.
+    The dynamic response of the targeted behavior leading up to and following the event tells us much more about how this effect begins and fades over time.
+    A deeper look into the shape of the signal following our event may even reveal a significant effect overlooked by our previous analysis, and much more quantitative behavioral models become possible.
+}
 
 \subsection{Highlighting Event Dynamics}
-The dynamics surrounding a particular event are most intuively shown using a time series.
+In order to explore the dynamical response of an intervention, the shape of the input signal must be defined.
+In most cases an intervention can be represented as an impulse signal.
+Using this representation the impulse response can be calculated as the cross-correlation between the intervention signal and the behavioral measure.
+Figure \ref{fig:ccf} shows the result of cross-corrlation between the intervention input and the heart rate across all participants in the KNOWME study.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{./img/CCF_HR_all.png}
+\caption{CCF showing study-wide heart rate response to intervention for the KNOWME dataset. }
+\label{fig:ccf}
+\end{figure}
+
+The dynamics surrounding a particular event can also be shown using a raw time series.
 The instance or span of the event is marked on the time-axis and the value of the behavioral measure (physical activity in this case) is encoded in the height at each point in time.
-We can describe several idealized intervention types based on behavioral theory using this common visualization paradigm.
 
 \begin{figure}
 \centering
@@ -33,7 +44,7 @@ These intervention response dynamics (shown in figure \ref{fig:exampleComplicati
 One method for examining event dynamics is to explore each participant's record individually (perhaps segmented by day), and to mark the events and manually explore individual responses.
 Since this examination is taking place over many series, it is prudent to utilize sparklines \cite{tufte2006} or horizongraphs \cite{reijner2008} to allow for examination of many series simultaneously.
 In doing this, however, it quickly becomes apparent that behavioral intervention data in this format is much too unwieldy.
-Random contextual fluctuations and inconsistency in frequency of intervention delivery makes visual identification of patterns extremely difficult when viewing an entire series, let alone series for multiple participants. 
+Random contextual fluctuations and inconsistency in frequency of intervention delivery makes visual identification of patterns extremely difficult when viewing an entire series, let alone series for multiple participants.
 Thus, we focus first on the characterizing the response to single events only, and can later address the issue of event history treated as a contextual subgrouping of all events.
 
 \subsection{Event-time Alignment}
@@ -48,32 +59,31 @@ By time-shifting our data view so that each intervention event falls at t=0 in a
 \label{fig:interventionAverage}
 \end{figure}
 
-Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give us sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (top)).
+Figures \ref{fig:exampleSignals} and \ref{fig:exampleComplications} give a sense of what an intervention should look like, but in reality individual variations in context completely mask the often small effect of an intervention (see Figure \ref{fig:interventionAverage} (top)).
 To a researcher looking at the plot of individual event responses in figure \ref{fig:interventionAverage} (top), it might seem that only the intervention plotted in purple was an effective intervention, acting with a delay of approximately 30m, and decaying rapidly 120m after the event.
-However, we know that the control dataset - by design - includes interventions that were 100\% effective, acting with minimal delay and beginning decay at 5m.
+However, the control dataset - by design - includes interventions that were 100\% effective, acting with minimal delay and beginning decay at 5m.
 Plotting these series with aforementioned ``summary dashboard'' methods may allow researchers to identify this pattern more easily, but the average signal is still difficult to pull out of the noise.
 Luckily, this is a familiar problem with a familiar solution.
-Since our data has been time-shifted to place the time of event at t=0, we can simply average the series together in order to identify nomothetic trends across all events.
+Since our data has been time-shifted to place the time of event at t=0, an average of the series together can reveal nomothetic trends across all events.
 When looking at all events individually (figure \ref{fig:interventionAverage} top), it is difficult to spot any pattern in the series.
 When averaging across all event responses, however, a clear, significant response is evident (figure \ref{fig:interventionAverage} bottom), and the purple series is exposed as an outlier.
 
 This approach can be taken for all events in one subject's time series to characterize that subject, or can be applied across subjects to characterize a more generalized response to the intervention.
-Inn fact, a subset of groups can even be selected and analyzed in order to enable advanced subgroup analysis.
+In fact, a subset of groups can even be selected and analyzed in order to enable advanced subgroup analysis.
 
 As expected, figure \ref{fig:interventionAverage} shows the control intervention to be quite effective at increasing the step count.
 The additional y-axis showing the mean and standard deviation of the series is included to give an increased sense of the significance of this effect relative to data which may be out of frame.
 In addition to the nearly immediate response, a longer-lasting effect reaching out to approximately 180m after the event seems to be boosting step count, though the all-events view in figure \ref{fig:interventionAverage} as well as the stacked-events display in figure 1B reveals that there are two outlier events which may be the sole cause.
-These finding show how, although the average line-graph makes spotting effects easy, we must be wary of outlying events or participants which can skew the average.
+These finding show how, although the average line-graph makes spotting effects easy, outlying events or participants can skew the average.
 This danger can be sometimes mitigated through use of median in place of mean, but since step-count does not obey a normal distribution (0 values are almost always modal), that approach does not work well in this case.
 
 \subsection{Stacking}
-To address the shortcomings of the aforementioned average-line shown in figure \ref{fig:interventionAverage}, we can show all individual events stacked on a single graph.
-This aggregation method yields the same shape, and the y-axis can be easily normalized to match our average series by dividing by the number of events.
-While still averaging out random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
+To address the shortcomings of the aforementioned average-line shown in figure \ref{fig:interventionAverage}, all individual events can be shown stacked on a single graph.
+This aggregation method yields the same shape, and the y-axis can be easily normalized to match the average series by dividing by the number of events.
+While still evening out random contextual influences, this visual also provides indication that the average result is not due to one outlier event, enables easy spotting of missing data or faulty sensors, and gives some indication of the number of events considered.
 For an n-of-one dataset such as the control dataset, events can be graphed with a unique color.
 In figure 1A, event colors are chosen based on the order in which they were observed.
 Color mapping of events can also be used to visually group events based on time of day, location of the event, or participant.
-For obvious reasons, however, encoding participant number in the bar color for the control dataset (figure 1B) is not very meaningful.
 
 \begin{figure}
 \centering
@@ -90,7 +100,7 @@ The thick gray line shows the average across all participants' average series.
 The stacked bars in figure \ref{fig:knowMeCompare} (bottom) are colored by participant ID, and each bar represents one unique event - stacked in order of event incidence.
 This allows researchers to search for both participant outliers within the set as well as event outliers within each participant.
 For instance, it is clear that the participant shown in purple responded to the intervention, due to the purple ``bulge'' but we can also see that this effect is largely the result of a single event within the participant's series.
-We can thus conclude both that intervention was effective on average, while also noting that there exists some variable within participants moderating the efficacy of our intervention.
+This reveals that the intervention was effective on average, while also showing that there exists some variable within participants moderating the efficacy of the intervention.
 
 Figure \ref{fig:knowMeCompare} shows an increase in accelerometry counts following the delivery of a physical-activity-suggesting sms message.
 Though the behavioral measure differs greatly from that used in the control dataset and \ref{fig:interventionAverage}, a comparison of the y-values in terms of standard deviation also reveals that this effect is less extreme than what we observe in the control intervention.
@@ -99,7 +109,7 @@ For additional comparison to the control data, also consider the average-line vi
 Though the highlighted windows are relatively small (to highlight the intervention response), much wider context around the event can be plotted, such as that shown in figure 1A.
 
 This same analysis is applied to figure 1C, but with another variable in the KNOWME dataset, heart rate.
-Both the accelerometry counts and heart rate signals should act as proxies of physical activity, and we can see by comparing these graphs that the correlation is clear.
+Both the accelerometry counts and heart rate signals should act as proxies of physical activity.
 Note however, the different dynamics of each variable's response.
 Accelerometry counts are more directly tied to behavior - which can be erratic and non-linear, thus the dynamics observed are more volatile, while heart rate acts as smoothed function of accelerometry, responding less quickly and decaying more slowly than accelerometry data.
 
@@ -116,7 +126,7 @@ The line-graph approach considers each subject equally regardless of the number 
 	\bar{y}(t) = \frac{1}{P} \sum\limits_{p=1}^P \frac{1}{n_p} \sum\limits{i=1}^n_p y_{i,p}(t)
 	\label{eq:lineAvg}
 \end{equation}
-	
+
 Equations (\ref{eq:barAvg}) and (\ref{eq:lineAvg}) shows the difference in aggregation methods for line vs stacked views where $N$ is the total number of events across all participants, $P$ is the number of participants, $n_p$ represents the number of events for subject $p$,  $y_i$ represents the time series for event $i$, and $y_{i,p}$ represents the time series for subject $p$'s event $i$.
 Aggretating data via method (\ref{eq:lineAvg}) does a better job to ensure that one participant does not skew results, but can give too much weight to data from a participant with few events.
 In this particular case, it makes little difference, however, since the number of events per participant are roughly equal.
@@ -126,8 +136,8 @@ In some cases introducing a “control event” against which to compare the exp
 For instance, an intervention delivered on a mobile device is always delivered within the context of phone interaction.
 That is, the user is always using the phone when the intervention is delivered.
 It is possible that "using the phone" has it's own unique effect on the behavioral measure.
-Thus, using "phone use" events as a baseline against which to compare "phone use and intervention delivery" strengthens the chance that the observed effect is a result of the intervention itself and not the result of frequently concurrent contextual forces. 
-For example, by looking at all times the phone was viewed in the mAvatar dataset, we can characterize the average context of phone use.
+Thus, using "phone use" events as a baseline against which to compare "phone use and intervention delivery" strengthens the chance that the observed effect is a result of the intervention itself and not the result of frequently concurrent contextual forces.
+For example, by looking at all times the phone was viewed in the mAvatar dataset, the average context of phone use can be characterized.
 
 \begin{figure}
 \centering
@@ -136,14 +146,14 @@ For example, by looking at all times the phone was viewed in the mAvatar dataset
 \label{fig:mAvatarPhoneContext}
 \end{figure}
 
-In figure \ref{fig:mAvatarPhoneContext}, we see a notable increase in steps leading up to phone usage.
+In figure \ref{fig:mAvatarPhoneContext}, a notable increase in steps leading up to phone usage is observed.
 It is possible that this increase - though it preempts avatar viewing - is indeed caused by the avatar.
 Consider, for instance, the unanimously reported case of subjects viewing the phone with the explicit purpose of seeing how the avatar would be affected by their behavior.
-Thus we should perhaps expect to see a peak in PA driven by the desire to illicit a response from the avatar, which is viewed only a few minutes later.
+Thus a peak in PA may indeed be driven by the desire to illicit a response from the avatar, which is viewed only a few minutes later.
 This interpretation is quite speculative and other features of figure \ref{fig:mAvatarPhoneContext} are not so easily explained.
 It is clear, however, that this is not a flat baseline that we may expect to find on average, and exploration of dynamics surrounding the active and sedentary avatar viewings ought to subtract this baseline to account for the overlapping of this context-driven (rather than event-driven) signal.
-This masking baseline signal is apparent in the unadjusted plot of active-avatar views shown in figure 1D. 
-Rather than a comparison of each event vs the baseline, however, the specific case of the mAvatar dataset allows us to utilize a direct comparison between similar, opposing events (active-avatar vs sedentary-avatar).
+This masking baseline signal is apparent in the unadjusted plot of active-avatar views shown in figure 1D.
+Rather than a comparison of each event vs the baseline, however, the specific case of the mAvatar dataset allows for a direct comparison between similar, opposing events (active-avatar vs sedentary-avatar).
 
 \comment{
 The results of this analysis were not interesting; the control data looks the same when processed this way
